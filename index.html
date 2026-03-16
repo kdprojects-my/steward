@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Steward — Professional oversight infrastructure for direct early-stage biotech investment. A non-profit entity providing family offices the confidence to invest directly in biotech, healthcare, and medical device companies.">
+  <meta property="og:title" content="Steward — Biotech Investment Oversight">
+  <meta property="og:description" content="Professional oversight infrastructure for direct early-stage biotech investment.">
+  <title>Steward — Professional Oversight for Biotech Investment</title>
+
+  <!-- CSS: Base & Components -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+
+  <!-- CSS: Modules -->
+  <link rel="stylesheet" href="css/modules/nav.css">
+  <link rel="stylesheet" href="css/modules/hero.css">
+  <link rel="stylesheet" href="css/modules/problem.css">
+  <link rel="stylesheet" href="css/modules/workflow.css">
+  <link rel="stylesheet" href="css/modules/investment.css">
+  <link rel="stylesheet" href="css/modules/sections.css">
+  <!-- Typography overrides — loaded last to ensure minimum readable sizes -->
+  <link rel="stylesheet" href="css/typography.css">
+</head>
+<body>
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<nav id="nav">
+  <a class="nav-logo" href="#hero">Steward<span>.</span></a>
+  <div class="nav-links">
+    <a class="nav-link" data-section="problem"    href="#problem">The Problem</a>
+    <a class="nav-link" data-section="workflow"   href="#workflow">How It Works</a>
+    <a class="nav-link" data-section="investment" href="#investment">The Investment Case</a>
+    <a class="nav-link" data-section="services"   href="#services">Services</a>
+    <a class="nav-link" data-section="faq"        href="#faq">FAQ</a>
+    <a class="nav-cta"  href="#application">Apply Now</a>
+  </div>
+</nav>
+
+
+<!-- ============================================================
+     MODULE 1: HERO
+     ============================================================ -->
+<section id="hero">
+  <div class="grid-texture"></div>
+  <div class="hero-amber-glow"></div>
+
+  <div class="hero-inner content">
+    <div class="hero-left">
+      <span class="section-label">Non-Profit Oversight Infrastructure</span>
+      <h1 class="hero-headline">
+        Professional oversight<br>for <em>direct</em> biotech<br>investment.
+      </h1>
+      <p class="hero-sub">
+        A structured oversight entity giving family offices the confidence to invest directly in early-stage biotech, healthcare, and medical device companies — with consolidated reporting, financial controls, and escrow management built in.
+      </p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary btn-lg" href="#application">Apply as a Company →</a>
+        <a class="btn btn-secondary btn-lg" href="#workflow">How It Works for Investors</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-num">~$2M</div>
+          <div class="hero-stat-label">Portfolio commitment</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">~20</div>
+          <div class="hero-stat-label">Companies per portfolio</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">10yr</div>
+          <div class="hero-stat-label">Investment horizon</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Diagram -->
+    <div class="hero-right">
+      <svg width="100%" viewBox="0 0 320 440" style="max-width:320px">
+        <defs>
+          <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+            <path d="M2 2L8 5L2 8" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+
+        <circle cx="160" cy="218" r="130" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+        <circle cx="160" cy="218" r="88"  fill="none" stroke="rgba(255,255,255,0.025)" stroke-width="0.5"/>
+
+        <!-- "Final review before investing" label + line -->
+        <text x="160" y="10" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="11" fill="rgba(255,255,255,0.32)">Final review before investing</text>
+        <line class="flow-line" x1="196" y1="17" x2="138" y2="17" stroke="rgba(255,255,255,0.4)" stroke-width="1" opacity="0.8" marker-end="url(#ah)"/>
+
+        <!-- TOP LEFT: Family Office -->
+        <rect x="14" y="30" width="122" height="68" rx="8" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"/>
+        <text x="75" y="51"  text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="14" font-weight="500" fill="rgba(255,255,255,0.88)">Family Office</text>
+        <text x="75" y="66"  text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="14" fill="rgba(255,255,255,0.4)">Direct investor</text>
+        <text x="75" y="80"  text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="11" fill="rgba(255,255,255,0.28)">← Consolidated reports</text>
+        <text x="75" y="92"  text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="11" fill="rgba(200,146,42,0.55)">Capital commitment →</text>
+
+        <!-- TOP RIGHT: Law Firm -->
+        <rect x="184" y="30" width="122" height="68" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
+        <text x="245" y="51"  text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="14" font-weight="500" fill="rgba(255,255,255,0.75)">Law Firm</text>
+        <text x="245" y="66"  text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="14" fill="rgba(255,255,255,0.38)">IP · Scientific review</text>
+        <text x="245" y="80"  text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="14" fill="rgba(255,255,255,0.38)">Deal terms</text>
+
+        <!-- FAMILY OFFICE → STEWARD -->
+        <line class="flow-line"   x1="96"  y1="100" x2="143" y2="183" stroke="#C8922A" stroke-width="1.2" opacity="0.7" marker-end="url(#ah)"/>
+        <line class="flow-line-r" x1="136" y1="183" x2="88"  y2="100" stroke="rgba(255,255,255,0.25)" stroke-width="0.8" opacity="0.7" marker-end="url(#ah)"/>
+
+        <!-- LAW FIRM → STEWARD -->
+        <line class="flow-line" x1="224" y1="100" x2="177" y2="183" stroke="rgba(255,255,255,0.28)" stroke-width="0.9" opacity="0.65" marker-end="url(#ah)"/>
+
+        <!-- CENTER: Steward -->
+        <circle cx="160" cy="218" r="54" fill="rgba(200,146,42,0.09)" stroke="#C8922A" stroke-width="0.8" class="center-orb"/>
+        <circle cx="160" cy="218" r="38" fill="rgba(200,146,42,0.16)" stroke="#C8922A" stroke-width="0.5"/>
+        <circle cx="160" cy="218" class="pulse-ring" stroke="#C8922A" stroke-width="0.5"/>
+        <text x="160" y="207" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="15" font-weight="500" fill="#e5a83d">STEWARD</text>
+        <text x="160" y="220" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="11" fill="rgba(229,168,61,0.62)">Escrow · Financial controls</text>
+        <text x="160" y="233" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="11" fill="rgba(229,168,61,0.62)">Progress reporting</text>
+
+        <!-- STEWARD → BIOTECH -->
+        <line class="flow-line"   x1="168" y1="256" x2="175" y2="336" stroke="#C8922A" stroke-width="1.2" opacity="0.55" marker-end="url(#ah)"/>
+        <line class="flow-line-r" x1="152" y1="336" x2="145" y2="256" stroke="rgba(255,255,255,0.25)" stroke-width="0.8" opacity="0.6" marker-end="url(#ah)"/>
+
+        <!-- Dots -->
+        <circle cx="160" cy="275" r="2"   fill="rgba(200,146,42,0.35)"/>
+        <circle cx="160" cy="284" r="1.5" fill="rgba(200,146,42,0.2)"/>
+        <circle cx="160" cy="292" r="1"   fill="rgba(200,146,42,0.12)"/>
+
+        <!-- BOTTOM: Biotech -->
+        <rect x="82" y="338" width="156" height="72" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
+        <text x="160" y="358" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="14" font-weight="500" fill="rgba(255,255,255,0.75)">Biotech Co.</text>
+        <text x="160" y="373" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="14" fill="rgba(255,255,255,0.38)">Healthcare · MedDevice</text>
+        <text x="160" y="387" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="11" fill="rgba(255,255,255,0.28)">Funds released when</text>
+        <text x="160" y="399" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="11" fill="rgba(255,255,255,0.28)">funding goal is reached</text>
+
+        <text x="160" y="430" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="11" fill="rgba(255,255,255,0.16)">Three-party oversight ecosystem</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     MODULE 2: THE PROBLEM
+     ============================================================ -->
+<section id="problem">
+  <div class="grid-texture"></div>
+  <div class="content">
+    <span class="section-label">The Problem</span>
+    <h2 class="section-headline" style="max-width:620px;">
+      The smarter path to early-stage biotech<br>has always been <em>diversification</em>.
+    </h2>
+    <p class="section-sub" style="max-width:640px;">
+      Concentrating ~$2M into a single early-stage company is a high-stakes bet. Spreading that same ~$2M across 20 carefully selected companies — at ~$100K each — changes the math entirely. You only need one or two to succeed for the portfolio to perform exceptionally. The model has always made sense. What was missing was the infrastructure to make it manageable.
+    </p>
+
+    <!-- Diversification Visual -->
+    <p style="font-size:16px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-dim);margin-bottom:24px;">The investment logic</p>
+    <div class="divers-grid reveal">
+      <div class="divers-panel divers-old">
+        <div class="divers-panel-label" style="color:var(--text-dim);">Concentrated approach</div>
+        <div class="divers-amount old">~$2M</div>
+        <div style="font-size:15px;font-weight:300;color:var(--text-dim);margin-bottom:18px;">into a single company</div>
+        <div class="company-dots"><div class="dot-single"><div style="width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.35);"></div></div></div>
+        <div style="font-size:15px;font-weight:300;color:rgba(255,255,255,0.35);margin-bottom:14px;">Binary outcome — one bet, all capital at risk</div>
+        <span class="risk-tag risk-high">High concentration risk</span>
+      </div>
+      <div class="vs-divider"><div class="vs-line"></div><div class="vs-text">vs</div><div class="vs-line"></div></div>
+      <div class="divers-panel divers-new">
+        <div class="divers-panel-label" style="color:var(--amber);">The Steward approach</div>
+        <div class="divers-amount new">~$100K</div>
+        <div style="font-size:15px;font-weight:300;color:rgba(200,146,42,0.5);margin-bottom:18px;">× ~20 companies = ~$2M deployed</div>
+        <div class="company-dots" id="diversDots"></div>
+        <div style="font-size:15px;font-weight:300;color:rgba(200,146,42,0.6);margin-bottom:14px;">Only 1–2 breakouts needed to drive exceptional returns</div>
+        <span class="risk-tag risk-smart">Diversified · Managed risk</span>
+      </div>
+    </div>
+    <p style="font-size:15px;font-weight:300;color:var(--text-dim);line-height:1.65;margin-top:16px;margin-bottom:48px;">
+      The two amber-highlighted positions above illustrate the thesis: across a portfolio of ~20, <strong style="color:var(--amber-light);font-weight:400;">even a modest hit rate delivers outsized aggregate returns</strong> over a 10-year horizon — while capping downside to ~$100K per position.
+    </p>
+
+    <!-- Compare Panels -->
+    <div class="compare-grid reveal">
+      <div class="panel-old">
+        <div class="badge badge-dim" style="margin-bottom:18px;">Without oversight</div>
+        <p class="panel-title old">Investing without infrastructure</p>
+        <div class="panel-item"><div class="bullet-old"></div><span style="color:rgba(255,255,255,0.4);font-size:16px;font-weight:300;">No consolidated view across portfolio companies</span></div>
+        <div class="panel-item"><div class="bullet-old"></div><span style="color:rgba(255,255,255,0.4);font-size:16px;font-weight:300;">Capital released with minimal accountability</span></div>
+        <div class="panel-item"><div class="bullet-old"></div><span style="color:rgba(255,255,255,0.4);font-size:16px;font-weight:300;">Financial review handled ad hoc — or not at all</span></div>
+        <div class="panel-item"><div class="bullet-old"></div><span style="color:rgba(255,255,255,0.4);font-size:16px;font-weight:300;">No structured budget oversight or milestone tracking</span></div>
+        <div class="panel-item"><div class="bullet-old"></div><span style="color:rgba(255,255,255,0.4);font-size:16px;font-weight:300;">Money managers overwhelmed by 20 private positions</span></div>
+      </div>
+      <div class="panel-new">
+        <div class="badge badge-amber" style="margin-bottom:18px;">The Steward model</div>
+        <p class="panel-title new">Structured oversight at every stage</p>
+        <div class="panel-item"><div class="bullet-new"></div><span style="color:var(--text-mid);font-size:16px;font-weight:300;">Unified view — all ~20 companies in one consolidated report</span></div>
+        <div class="panel-item"><div class="bullet-new"></div><span style="color:var(--text-mid);font-size:16px;font-weight:300;">Escrow holds capital until funding goals are met</span></div>
+        <div class="panel-item"><div class="bullet-new"></div><span style="color:var(--text-mid);font-size:16px;font-weight:300;">Semi-annual internal financial review and quarterly milestone check-ins</span></div>
+        <div class="panel-item"><div class="bullet-new"></div><span style="color:var(--text-mid);font-size:16px;font-weight:300;">Ongoing budget oversight and milestone accountability</span></div>
+        <div class="panel-item"><div class="bullet-new"></div><span style="color:var(--text-mid);font-size:16px;font-weight:300;">Flat fee model — covered by portfolio companies after commitment</span></div>
+      </div>
+    </div>
+
+    <!-- Why hasn't this existed -->
+    <p style="font-size:16px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-dim);margin-bottom:20px;">Why hasn't this existed until now</p>
+    <div class="why-grid reveal">
+      <div class="why-card"><div class="why-num">01</div><div class="why-title">No reporting standard</div><div class="why-sub">Private early-stage holdings have never had a consolidated internal review framework</div></div>
+      <div class="why-card"><div class="why-num">02</div><div class="why-title">Oversight burden</div><div class="why-sub">Managing 20 companies individually is operationally prohibitive without dedicated infrastructure</div></div>
+      <div class="why-card"><div class="why-num">03</div><div class="why-title">No escrow mechanism</div><div class="why-sub">Capital has historically flowed without the structured release controls investors need</div></div>
+      <div class="why-card"><div class="why-num">04</div><div class="why-title">Cost of oversight</div><div class="why-sub">Professional oversight was too expensive — until a shared fee model across companies made it viable</div></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     MODULE 3: HOW IT WORKS
+     ============================================================ -->
+<section id="workflow">
+  <div class="grid-texture"></div>
+  <div class="content">
+    <span class="section-label">How It Works</span>
+    <h2 class="section-headline">One process. <em>Three perspectives.</em></h2>
+    <p class="section-sub" style="max-width:620px;">Every party in the Steward model moves through the same structured process — but each experiences it differently. Select your perspective below to see how the workflow unfolds from your vantage point.</p>
+
+    <div class="tab-row">
+      <button class="tab-btn wf-tab-btn active" data-tab="biotech">Biotech Company</button>
+      <button class="tab-btn wf-tab-btn" data-tab="family">Family Office</button>
+      <button class="tab-btn wf-tab-btn" data-tab="steward">Steward Oversight</button>
+    </div>
+
+    <div class="workflow-wrap">
+      <div class="step-list" id="wfStepList"></div>
+      <div class="detail-panel">
+        <div class="detail-step-bg-num" id="wfDetailNum">1</div>
+        <div id="wfDetailContent"></div>
+        <div class="step-nav-row">
+          <button class="btn btn-ghost btn-sm" id="wfPrev" onclick="wfNavigate(-1)">← Previous</button>
+          <div class="step-progress" id="wfProgress"></div>
+          <button class="btn btn-ghost btn-sm" id="wfNext" onclick="wfNavigate(1)">Next →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     MODULE 4: THE INVESTMENT CASE
+     ============================================================ -->
+<section id="investment">
+  <div class="grid-texture"></div>
+  <div class="content">
+    <span class="section-label">The Investment Case</span>
+    <h2 class="section-headline">Turning <em>~$2M</em> into $28M through<br>strategic biotech diversification.</h2>
+    <p class="section-sub" style="max-width:640px;">The math behind this model is compelling — and it's grounded in how early-stage biotech actually works. Distributed across ~20 carefully selected companies, a ~$2M commitment can generate projected returns of $28M over a 10-year horizon, even with a 60% failure rate built in. Adjust the variables below to explore the portfolio outcomes.</p>
+
+    <div class="context-row reveal">
+      <div class="ctx-card highlight">
+        <div class="ctx-num">70%</div>
+        <div class="ctx-label">of FDA-approved drugs originate from external sources — not Big Pharma's own R&D pipelines</div>
+        <div class="ctx-source">Source: Syneos Health</div>
+      </div>
+      <div class="ctx-card highlight">
+        <div class="ctx-num">25–39%</div>
+        <div class="ctx-label">estimated annual IRR from expertly managed biotech syndicates over a 10-year horizon</div>
+        <div class="ctx-source">Source: Going Public</div>
+      </div>
+      <div class="ctx-card highlight">
+        <div class="ctx-num">61%</div>
+        <div class="ctx-label">reduction in VC investment in pre-clinical biotech from 2021 peak — entry window remains well below historic highs</div>
+        <div class="ctx-source">Source: Novotech Whitepaper</div>
+      </div>
+    </div>
+
+    <div class="sim-wrap reveal">
+      <div class="sim-controls">
+        <p class="sim-title">Portfolio simulator</p>
+        <div class="ctrl-group">
+          <div class="ctrl-label-row"><span class="ctrl-name">Investment per company</span><span class="ctrl-val" id="valPerCo">~$100K</span></div>
+          <input type="range" min="50" max="250" step="50" value="100" id="sliderPerCo">
+          <div class="ctrl-hint">Approximate direct commitment per portfolio company — no fund fees</div>
+        </div>
+        <div class="ctrl-group">
+          <div class="ctrl-label-row"><span class="ctrl-name">Number of companies</span><span class="ctrl-val" id="valNumCo">20</span></div>
+          <input type="range" min="10" max="30" step="5" value="20" id="sliderNumCo">
+          <div class="ctrl-hint">Portfolio size over a 5-year deployment window</div>
+        </div>
+        <div class="ctrl-group">
+          <div class="ctrl-label-row"><span class="ctrl-name">Failure rate</span><span class="ctrl-val" id="valFail">60%</span></div>
+          <input type="range" min="40" max="80" step="5" value="60" id="sliderFail">
+          <div class="ctrl-hint">Industry-standard anticipated failure rate — the majority of early-stage companies will not succeed</div>
+        </div>
+        <div class="ctrl-group">
+          <div class="ctrl-label-row"><span class="ctrl-name">Top performer return</span><span class="ctrl-val" id="valTop">100×</span></div>
+          <input type="range" min="20" max="200" step="10" value="100" id="sliderTop">
+          <div class="ctrl-hint">Upside multiple on a breakout company at exit</div>
+        </div>
+      </div>
+      <div class="sim-results">
+        <p class="result-headline">Projected portfolio outcome</p>
+        <div class="result-big">
+          <div class="result-big-num" id="rTotal">$28.0M</div>
+          <div class="result-big-label">Projected total portfolio return — 10-year horizon</div>
+        </div>
+        <div class="result-grid">
+          <div class="result-cell"><div class="result-cell-num" id="rDeployed">~$2.0M</div><div class="result-cell-label">Total capital deployed</div></div>
+          <div class="result-cell"><div class="result-cell-num" id="rMultiple">14×</div><div class="result-cell-label">Gross portfolio multiple</div></div>
+          <div class="result-cell"><div class="result-cell-num" id="rSurvivors">8</div><div class="result-cell-label">Companies that survive</div></div>
+          <div class="result-cell"><div class="result-cell-num" id="rFailed">12</div><div class="result-cell-label">Companies that fail</div></div>
+        </div>
+        <p class="result-note">Return model: 1 top performer at selected multiple, 2 breakouts at 10×, remaining survivors at 3× average. Failed positions return $0. Oversight through Steward is what makes this model viable at scale.</p>
+      </div>
+    </div>
+
+    <div class="portfolio-vis reveal">
+      <p class="pv-label">Portfolio outcome visualisation — based on current settings</p>
+      <div class="dot-grid" id="dotGrid"></div>
+      <div class="dot-legend">
+        <div class="dl-item"><div class="dl-swatch" style="background:rgba(200,146,42,0.6);border:0.5px solid var(--amber)"></div>Top performer (100×+)</div>
+        <div class="dl-item"><div class="dl-swatch" style="background:rgba(200,146,42,0.3);border:0.5px solid rgba(200,146,42,0.6)"></div>Breakout (10×)</div>
+        <div class="dl-item"><div class="dl-swatch" style="background:rgba(200,146,42,0.1);border:0.5px solid rgba(200,146,42,0.22)"></div>Modest exit (3×)</div>
+        <div class="dl-item"><div class="dl-swatch" style="background:rgba(255,255,255,0.03);border:0.5px solid rgba(255,255,255,0.1)"></div>Failed position</div>
+      </div>
+    </div>
+
+    <div class="vc-band reveal">
+      <div>
+        <p class="vc-band-title">The VC pullback — your entry window</p>
+        <p class="vc-band-body">Pre-clinical biotech VC investment collapsed from $9B in 2021 to $3.5B in 2023 — a 61% reduction. A modest recovery began in 2024 driven by interest rate cuts, but 2025 brought renewed headwinds from tariffs, NIH funding cuts, and FDA uncertainty. Investment remains well below the 2021 peak, keeping valuations favorable and competition limited for patient, direct investors.</p>
+        <div style="margin-top:10px;font-size:17px;color:var(--text-dim);">Sources: Novotech Whitepaper · EY · GlobalData · HSBC Innovation Banking<br><span style="color:rgba(200,146,42,0.45);">* 2024–2025 are broader biotech VC estimates; pre-clinical subset pending updated sourcing</span></div>
+      </div>
+      <div class="vc-bars">
+        <div class="vc-bar-row"><span class="vc-bar-year">2021</span><div class="vc-bar-track"><div class="vc-bar-fill" style="width:100%;background:rgba(200,146,42,0.55);"></div></div><span class="vc-bar-val">$9.0B</span></div>
+        <div class="vc-bar-row"><span class="vc-bar-year">2022</span><div class="vc-bar-track"><div class="vc-bar-fill" style="width:72%;background:rgba(200,146,42,0.42);"></div></div><span class="vc-bar-val">$6.5B</span></div>
+        <div class="vc-bar-row"><span class="vc-bar-year">2023</span><div class="vc-bar-track"><div class="vc-bar-fill" style="width:39%;background:rgba(200,146,42,0.28);"></div></div><span class="vc-bar-val">$3.5B</span></div>
+        <div class="vc-bar-row"><span class="vc-bar-year" style="color:rgba(255,255,255,0.5);">2024</span><div class="vc-bar-track"><div class="vc-bar-fill" style="width:50%;background:rgba(200,146,42,0.32);"></div></div><span class="vc-bar-est">~$4.5B*</span></div>
+        <div class="vc-bar-row"><span class="vc-bar-year" style="color:rgba(255,255,255,0.5);">2025</span><div class="vc-bar-track"><div class="vc-bar-fill" style="width:44%;background:rgba(200,146,42,0.25);"></div></div><span class="vc-bar-est">~$4.0B*</span></div>
+        <div class="vc-bar-row" style="margin-top:4px;"><span class="vc-bar-year" style="color:var(--amber);font-weight:500;">Now</span><div class="vc-bar-track" style="background:rgba(200,146,42,0.06);border:0.5px solid rgba(200,146,42,0.2);"><div class="vc-bar-fill" style="width:32%;background:rgba(200,146,42,0.15);"></div></div><span class="vc-bar-val" style="color:var(--amber);">Window</span></div>
+      </div>
+    </div>
+
+    <p class="disclaimer">* Projected returns are illustrative and based on industry research. They rely on proper portfolio capitalization, expert scientific evaluation, IP assessment, and structured financial oversight — which is precisely what the Steward model is designed to provide. Past performance of comparable portfolios does not guarantee future results. These figures should not be construed as investment advice. The majority of early-stage companies will not succeed. 2024–2025 VC figures are broader biotech estimates. Sources: Going Public, Novotech Whitepaper, Syneos Health, BioWorld, EY, GlobalData, HSBC Innovation Banking.</p>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     MODULE 5: OVERSIGHT SERVICES
+     ============================================================ -->
+<section id="services">
+  <div class="grid-texture"></div>
+  <div class="content">
+    <span class="section-label">Oversight Services</span>
+    <h2 class="section-headline">Everything a family office needs.<br><em>Nothing they have to manage.</em></h2>
+    <p class="section-sub" style="max-width:640px;">Steward provides internal oversight infrastructure across every portfolio company — reviewing financials, monitoring budgets, tracking milestones, and keeping documentation structured and organised. Participating companies cover the cost through a flat fee once funds are committed, so family offices benefit from a dedicated oversight layer with no additional burden.</p>
+
+    <div class="fee-banner reveal">
+      <div class="fee-banner-left">
+        <div class="fee-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="5" width="16" height="11" rx="2" stroke="rgba(200,146,42,0.8)" stroke-width="0.8"/><path d="M2 9h16" stroke="rgba(200,146,42,0.8)" stroke-width="0.8"/><circle cx="6" cy="13" r="1" fill="rgba(200,146,42,0.7)"/></svg>
+        </div>
+        <div>
+          <div class="fee-title">Flat fee model</div>
+          <div class="fee-sub">Paid by portfolio companies — only after funds are committed</div>
+        </div>
+      </div>
+      <div class="fee-detail"><strong>No upfront fee. No commission.</strong> Companies pay a flat fee to Steward only once their funding goal has been committed, covering all oversight services for the duration of the investment.</div>
+    </div>
+
+    <div class="services-grid" id="servicesGrid"></div>
+
+    <div class="detail-expand" id="detailExpand">
+      <span class="expand-tag" id="expandTag"></span>
+      <div class="expand-title" id="expandTitle"></div>
+      <p class="expand-body" id="expandBody"></p>
+      <div class="expand-points" id="expandPoints"></div>
+    </div>
+
+    <div class="who-row reveal">
+      <div class="who-card">
+        <div class="who-title">For family offices</div>
+        <div class="who-item"><div class="who-bullet"></div>Semi-annual internal financial review across all portfolio positions</div>
+        <div class="who-item"><div class="who-bullet"></div>Quarterly milestone progress check-ins per company</div>
+        <div class="who-item"><div class="who-bullet"></div>Financial documents organised and structured for internal review</div>
+        <div class="who-item"><div class="who-bullet"></div>Escrow managed by Steward's retained escrow attorney</div>
+        <div class="who-item"><div class="who-bullet"></div>No operational burden — Steward handles the oversight layer</div>
+      </div>
+      <div class="who-card">
+        <div class="who-title">For portfolio companies</div>
+        <div class="who-item"><div class="who-bullet"></div>Guaranteed funding pathway — funds released when goal is reached</div>
+        <div class="who-item"><div class="who-bullet"></div>No upfront fee and no commission to Steward</div>
+        <div class="who-item"><div class="who-bullet"></div>Flat fee to Steward begins only once funds are committed</div>
+        <div class="who-item"><div class="who-bullet"></div>Advisory access and structured internal oversight from funding close</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     MODULE 6: WHO WE WORK WITH
+     ============================================================ -->
+<section id="partners">
+  <div class="grid-texture"></div>
+  <div class="content">
+    <span class="section-label">Who We Work With</span>
+    <h2 class="section-headline">Built for three parties.<br><em>Designed to serve all of them.</em></h2>
+    <p class="section-sub" style="max-width:640px;">Steward sits at the intersection of family office capital, early-stage innovation, and professional legal oversight. Each relationship is structured to be mutually reinforcing — and each party gets exactly what they need to move forward with confidence.</p>
+
+    <div class="three-col reveal">
+      <!-- Family Offices -->
+      <div class="col-card c1">
+        <div class="col-icon dim">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="2" y="10" width="18" height="10" rx="2" stroke="rgba(255,255,255,0.5)" stroke-width="0.8"/><path d="M5 10V7l6-5 6 5v3" stroke="rgba(255,255,255,0.5)" stroke-width="0.8" stroke-linejoin="round"/><rect x="8" y="14" width="6" height="6" rx="1" stroke="rgba(255,255,255,0.35)" stroke-width="0.8"/></svg>
+        </div>
+        <div class="col-tag tag-dim">For investors</div>
+        <div class="col-title">Family Offices</div>
+        <div class="col-body">Steward gives family offices the confidence to invest directly in early-stage biotech — with full internal oversight, structured reporting, and escrow protection built in from the start.</div>
+        <ul class="col-list">
+          <li class="col-item"><div class="col-dot dot-dim"></div>Direct investment — no fund manager or management fee</li>
+          <li class="col-item"><div class="col-dot dot-dim"></div>Semi-annual financial review and quarterly milestone check-ins</li>
+          <li class="col-item"><div class="col-dot dot-dim"></div>Escrow protection — capital returned if goal is not met</li>
+          <li class="col-item"><div class="col-dot dot-dim"></div>Curated deal flow — two filters before it reaches you</li>
+          <li class="col-item"><div class="col-dot dot-dim"></div>~$100K per position — ~$2M deployed over five years</li>
+        </ul>
+        <a class="btn btn-ghost btn-sm" href="#workflow">Learn more →</a>
+      </div>
+      <!-- Steward -->
+      <div class="col-card c2 featured">
+        <div class="col-icon amber">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 2L3 5.5v5c0 4.7 3.5 9.1 8 10 4.5-.9 8-5.3 8-10v-5L11 2z" stroke="rgba(200,146,42,0.85)" stroke-width="0.8" stroke-linejoin="round"/><path d="M7 11l3 3 5-5" stroke="rgba(200,146,42,1)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="col-tag tag-amber">The oversight entity</div>
+        <div class="col-title">Steward Non-Profit</div>
+        <div class="col-body">Steward is the active oversight layer at the center of every investment — not a passive administrator. Steward reviews financials, monitors operations, advises companies on gaps, manages escrow, and keeps all parties informed and accountable at every stage.</div>
+        <ul class="col-list">
+          <li class="col-item"><div class="col-dot dot-amber"></div>Non-profit structure — mission-aligned, not profit-driven</li>
+          <li class="col-item"><div class="col-dot dot-amber"></div>Expert deal sourcing, screening, and initial company review</li>
+          <li class="col-item"><div class="col-dot dot-amber"></div>Active financial supervision and budget monitoring</li>
+          <li class="col-item"><div class="col-dot dot-amber"></div>Operational oversight — advises on gaps and course corrections</li>
+          <li class="col-item"><div class="col-dot dot-amber"></div>Escrow managed through Steward's retained escrow attorney</li>
+          <li class="col-item"><div class="col-dot dot-amber"></div>Flat fee from portfolio companies — begins after funding is committed</li>
+        </ul>
+        <a class="btn btn-amber-outline btn-sm" href="#services">About Steward →</a>
+      </div>
+      <!-- Biotech -->
+      <div class="col-card c3">
+        <div class="col-icon dim">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M8 3v6L4 16a2 2 0 001.9 2.7h12.2A2 2 0 0020 16l-4-7V3" stroke="rgba(255,255,255,0.5)" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 3h8" stroke="rgba(255,255,255,0.4)" stroke-width="0.8" stroke-linecap="round"/><circle cx="10" cy="14" r="1" fill="rgba(255,255,255,0.3)"/><circle cx="13" cy="16" r="1" fill="rgba(255,255,255,0.2)"/></svg>
+        </div>
+        <div class="col-tag tag-dim">For applicants</div>
+        <div class="col-title">Biotech, Healthcare &amp; MedDevice</div>
+        <div class="col-body">Early-stage companies gain access to a curated network of direct family office investors — alongside active oversight and advisory support that helps them stay on track and build investor confidence.</div>
+        <ul class="col-list">
+          <li class="col-item"><div class="col-dot dot-dim"></div>Apply directly or receive a proactive invitation</li>
+          <li class="col-item"><div class="col-dot dot-dim"></div>Filed IP ownership required to qualify</li>
+          <li class="col-item"><div class="col-dot dot-dim"></div>Funds released when full funding goal is reached</li>
+          <li class="col-item"><div class="col-dot dot-dim"></div>No upfront fee — flat fee begins only after commitment</li>
+          <li class="col-item"><div class="col-dot dot-dim"></div>Steward advises on operational gaps and milestone planning</li>
+        </ul>
+        <a class="btn btn-ghost btn-sm" href="#application">Apply now →</a>
+      </div>
+    </div>
+
+    <!-- Partner Row -->
+    <div class="partners-section reveal">
+      <div class="partners-label">The oversight ecosystem</div>
+      <div class="partners-row">
+        <div class="partner-side">
+          <div class="partner-pill amber-pill">
+            <div class="pill-icon amber-bg"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="3" width="12" height="8" rx="1.5" stroke="rgba(200,146,42,0.7)" stroke-width="0.8"/><path d="M4 6h6M4 8.5h3" stroke="rgba(200,146,42,0.6)" stroke-width="0.7" stroke-linecap="round"/></svg></div>
+            <div><div class="pill-name">Law Firm Partner</div><div class="pill-type">IP review · Scientific assessment · Deal terms</div></div>
+          </div>
+          <div class="partner-pill">
+            <div class="pill-icon dim-bg"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5.5" stroke="rgba(255,255,255,0.25)" stroke-width="0.7" stroke-dasharray="2 2"/><path d="M4 7h6M7 4v6" stroke="rgba(255,255,255,0.2)" stroke-width="0.7" stroke-linecap="round"/></svg></div>
+            <div><div class="pill-placeholder">Partner opportunity</div><div class="pill-type">Open to qualified firms</div></div>
+          </div>
+        </div>
+
+        <div class="steward-featured">
+          <div class="sf-tag">Steward · Non-profit oversight entity</div>
+          <div class="sf-title">Full-spectrum oversight</div>
+          <div class="sf-sub">Steward is the active oversight layer — not just an administrator. Every portfolio company receives hands-on financial supervision, operational guidance, and milestone accountability throughout the investment lifecycle.</div>
+          <div class="sf-tags">
+            <span class="sf-tag-pill">Deal sourcing</span><span class="sf-tag-pill">Initial screening</span><span class="sf-tag-pill">Financial supervision</span><span class="sf-tag-pill">Budget oversight</span><span class="sf-tag-pill">Operational advisory</span><span class="sf-tag-pill">Milestone tracking</span><span class="sf-tag-pill">Escrow coordination</span><span class="sf-tag-pill">Investor reporting</span><span class="sf-tag-pill">Gap identification</span><span class="sf-tag-pill">Course correction</span>
+          </div>
+        </div>
+
+        <div class="partner-side">
+          <div class="partner-pill amber-pill">
+            <div class="pill-icon amber-bg"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="2" y="5" width="10" height="7" rx="1.5" stroke="rgba(200,146,42,0.7)" stroke-width="0.8"/><path d="M5 5V4a2 2 0 014 0v1" stroke="rgba(200,146,42,0.6)" stroke-width="0.8" stroke-linecap="round"/><circle cx="7" cy="9" r="1" fill="rgba(200,146,42,0.6)"/></svg></div>
+            <div><div class="pill-name">Escrow Attorney</div><div class="pill-type">Capital management · Secure release · Retained by Steward</div></div>
+          </div>
+          <div class="partner-pill">
+            <div class="pill-icon dim-bg"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5.5" stroke="rgba(255,255,255,0.25)" stroke-width="0.7" stroke-dasharray="2 2"/><path d="M4 7h6M7 4v6" stroke="rgba(255,255,255,0.2)" stroke-width="0.7" stroke-linecap="round"/></svg></div>
+            <div><div class="pill-placeholder">Partner opportunity</div><div class="pill-type">Open to qualified firms</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="trust-strip reveal">
+      <div class="trust-cell"><div class="trust-num">Non-profit</div><div class="trust-label">Mission-aligned oversight entity — not profit-driven</div></div>
+      <div class="trust-cell"><div class="trust-num">3-party</div><div class="trust-label">Family offices, portfolio companies, and legal partners</div></div>
+      <div class="trust-cell"><div class="trust-num">2 filters</div><div class="trust-label">Every deal passes Steward's expert review and the law firm's IP assessment</div></div>
+      <div class="trust-cell"><div class="trust-num">Semi-annual</div><div class="trust-label">Consolidated financial review plus quarterly milestone check-ins</div></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     MODULE 7: COMPANY APPLICATION
+     ============================================================ -->
+<section id="application">
+  <div class="grid-texture"></div>
+  <div class="content">
+    <span class="section-label">Company Application</span>
+    <h2 class="section-headline">Apply to the<br><em>Steward programme.</em></h2>
+    <p class="section-sub" style="max-width:640px;">Early-stage biotech, healthcare, and medical device companies can apply directly below. Applications are reviewed within 30–45 days. The minimum requirement to qualify is filed IP that you have control over.</p>
+
+    <div class="progress-wrap" id="appProgress"></div>
+    <div class="form-wrap" id="appFormWrap"></div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     MODULE 8: FAQ
+     ============================================================ -->
+<section id="faq">
+  <div class="grid-texture"></div>
+  <div class="content">
+    <span class="section-label">Frequently Asked Questions</span>
+    <h2 class="section-headline" style="max-width:560px;">Everything you need<br>to know about <em>Steward.</em></h2>
+    <p class="section-sub" style="max-width:580px;">Questions answered for both audiences. Select your perspective below or browse all questions.</p>
+
+    <div class="tab-row">
+      <button class="tab-btn faq-tab-btn active" data-tab="all">All questions</button>
+      <button class="tab-btn faq-tab-btn" data-tab="family">Family Offices</button>
+      <button class="tab-btn faq-tab-btn" data-tab="biotech">Biotech Companies</button>
+    </div>
+
+    <div class="faq-wrap" id="faqWrap"></div>
+
+    <div class="contact-band">
+      <div>
+        <div class="contact-title">Still have questions?</div>
+        <div class="contact-body">Our team is happy to walk you through the Steward model in detail — whether you're a family office exploring direct investment or an early-stage company considering applying.</div>
+      </div>
+      <a class="btn btn-primary" href="mailto:info@stewardoversight.org">Get in touch →</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     MODULE 9: FOOTER
+     ============================================================ -->
+<footer id="footer">
+
+  <div class="cta-band">
+    <div class="grid-texture"></div>
+    <div class="cta-glow"></div>
+    <div class="content" style="grid-column:1">
+      <p class="cta-label">Get started</p>
+      <h2 class="cta-headline">Ready to invest with<br><em>confidence?</em></h2>
+      <p class="cta-sub">Whether you are a family office exploring direct biotech investment or an early-stage company seeking structured funding, Steward provides the oversight infrastructure to move forward — with clarity, accountability, and professional support at every stage.</p>
+    </div>
+    <div class="cta-right content">
+      <a class="btn btn-primary btn-lg btn-full" href="#application">Apply as a Company →</a>
+      <a class="btn btn-secondary btn-lg btn-full" href="#workflow">Learn More — Family Offices</a>
+      <div class="cta-note-wrap">
+        <div class="cta-note-box amber-box">
+          <div class="cta-note-label amber">For family offices</div>
+          <div class="cta-note-text">~$100K per company position · up to ~20 companies · ~$2M total over 5 years</div>
+        </div>
+        <div class="cta-note-box">
+          <div class="cta-note-label">For companies</div>
+          <div class="cta-note-text">Funding goal reached by combining multiple ~$100K commitments · funds released at full goal</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-main">
+    <div>
+      <div class="footer-logo">Steward<span>.</span></div>
+      <p class="footer-tagline">Professional oversight infrastructure for direct early-stage biotech investment.</p>
+      <div class="badge-nonprofit">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1L2 3v3c0 2.8 1.9 5.4 4 5.9 2.1-.5 4-3.1 4-5.9V3L6 1z" stroke="rgba(200,146,42,0.8)" stroke-width="0.8" stroke-linejoin="round"/><path d="M4 6l1.5 1.5 3-3" stroke="rgba(200,146,42,1)" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Non-profit entity</span>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Platform</div>
+      <div class="footer-links">
+        <a class="footer-link" href="#problem">The Problem</a>
+        <a class="footer-link" href="#workflow">How It Works</a>
+        <a class="footer-link" href="#investment">The Investment Case</a>
+        <a class="footer-link" href="#services">Oversight Services</a>
+        <a class="footer-link" href="#partners">Who We Work With</a>
+        <a class="footer-link" href="#faq">FAQ</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">For companies</div>
+      <div class="footer-links">
+        <a class="footer-link amber" href="#application">Apply now →</a>
+        <a class="footer-link" href="#workflow">Application requirements</a>
+        <a class="footer-link" href="#workflow">Review process</a>
+        <a class="footer-link" href="#services">Ongoing oversight</a>
+        <a class="footer-link" href="#services">Advisory &amp; support</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <div class="contact-item">
+        <svg class="contact-icon" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="10" rx="2" stroke="rgba(255,255,255,0.7)" stroke-width="0.8"/><path d="M1 5.5l7 4.5 7-4.5" stroke="rgba(255,255,255,0.7)" stroke-width="0.8" stroke-linecap="round"/></svg>
+        <div class="contact-text"><a href="mailto:info@stewardoversight.org">info@stewardoversight.org</a></div>
+      </div>
+      <div class="contact-item">
+        <svg class="contact-icon" viewBox="0 0 16 16" fill="none"><path d="M8 1C5.2 1 3 3.2 3 6c0 3.8 5 9 5 9s5-5.2 5-9c0-2.8-2.2-5-5-5z" stroke="rgba(255,255,255,0.7)" stroke-width="0.8"/><circle cx="8" cy="6" r="1.5" stroke="rgba(255,255,255,0.7)" stroke-width="0.8"/></svg>
+        <div class="contact-text">Washington, D.C. · United States</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-divider"></div>
+
+  <div class="footer-bottom">
+    <div class="footer-legal">
+      © 2025 Steward Oversight. All rights reserved. Steward is a non-profit oversight entity and does not provide investment advice, legal counsel, or certified audit services. Family offices invest directly at approximately $100K per company position — a company's total funding goal is met by aggregating multiple such commitments, with funds released only upon reaching the full target. Projected returns referenced on this platform are illustrative and based on industry research — they are not guarantees of future performance. Direct investment in early-stage biotech involves significant risk, including the loss of capital. The majority of early-stage companies will not achieve commercial success. All investment decisions should be made in consultation with qualified financial and legal advisors.
+    </div>
+    <div class="footer-bottom-links">
+      <span class="footer-bottom-link">Privacy Policy</span>
+      <span class="footer-bottom-link">Terms of Use</span>
+      <span class="footer-bottom-link">Disclaimer</span>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script src="js/modules/workflow.js"></script>
+<script src="js/modules/simulator.js"></script>
+<script src="js/modules/services.js"></script>
+<script src="js/modules/application.js"></script>
+<script src="js/modules/faq.js"></script>
+<script src="js/main.js"></script>
+
+<script>
+  // Render diversification dots
+  (function() {
+    const container = document.getElementById('diversDots');
+    if (!container) return;
+    const dots = Array(20).fill(0).map((_, i) => {
+      const cls = i >= 18 ? 'success' : '';
+      return `<div class="dot-many ${cls}"></div>`;
+    });
+    container.innerHTML = dots.join('');
+  })();
+</script>
+
+</body>
+</html>

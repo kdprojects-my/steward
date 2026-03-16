@@ -1,0 +1,104 @@
+/* ============================================================
+   hero.css — Module 1: Hero Section
+   ============================================================ */
+
+#hero {
+  position: relative;
+  overflow: hidden;
+  padding-top: 60px;
+}
+
+.hero-amber-glow {
+  position: absolute;
+  width: 700px; height: 350px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(200,146,42,0.14) 0%, transparent 70%);
+  top: -80px; right: -120px;
+  pointer-events: none;
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 580px;
+  padding: var(--section-pad);
+  gap: 40px;
+  align-items: center;
+}
+
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-headline {
+  font-family: var(--font-serif);
+  font-size: 54px;
+  font-weight: 500;
+  line-height: 1.08;
+  color: var(--text-bright);
+  margin: 0 0 26px;
+}
+
+.hero-headline em {
+  font-style: italic;
+  color: var(--amber-light);
+}
+
+.hero-sub {
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--text-mid);
+  margin: 0 0 38px;
+  max-width: 440px;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 44px;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 36px;
+  padding-top: 36px;
+  border-top: 0.5px solid rgba(255,255,255,0.1);
+}
+
+.hero-stat-num {
+  font-family: var(--font-serif);
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--text-bright);
+  line-height: 1;
+}
+
+.hero-stat-label {
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-top: 5px;
+  letter-spacing: 0.04em;
+}
+
+.hero-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+/* Make the SVG diagram much larger */
+.hero-right svg {
+  max-width: 420px !important;
+  width: 100% !important;
+}
+
+/* SVG diagram animations */
+.flow-line   { stroke-dasharray: 6 4; animation: dash-flow   2s linear infinite; }
+.flow-line-r { stroke-dasharray: 6 4; animation: dash-flow-r 2s linear infinite; }
+.center-orb  { animation: orb-breathe 3s ease-in-out infinite; }
+.pulse-ring  { animation: pulse-ring 2.4s ease-out infinite; fill: none; }

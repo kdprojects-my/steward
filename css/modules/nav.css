@@ -1,0 +1,78 @@
+/* ============================================================
+   nav.css — Fixed Navigation Bar
+   ============================================================ */
+
+#nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: rgba(8,15,26,0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 0.5px solid var(--border-dim);
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 48px;
+  justify-content: space-between;
+  transition: background var(--transition-mid);
+}
+
+#nav.scrolled {
+  background: rgba(8,15,26,0.97);
+  border-bottom-color: rgba(255,255,255,0.1);
+}
+
+.nav-logo {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--text-bright);
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.nav-logo span { color: var(--amber); }
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+
+.nav-link {
+  font-size: 12px;
+  color: var(--text-dim);
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition: color var(--transition-mid);
+  text-decoration: none;
+}
+
+.nav-link:hover { color: var(--text-bright); }
+
+.nav-link.active { color: var(--text-mid); }
+
+.nav-cta {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--amber);
+  border: 0.5px solid var(--amber);
+  padding: 7px 16px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition: background var(--transition-mid);
+  text-decoration: none;
+}
+
+.nav-cta:hover {
+  background: rgba(200,146,42,0.1);
+  color: var(--amber-light);
+}
+
+/* Page offset for fixed nav */
+section {
+  scroll-margin-top: 60px;
+}

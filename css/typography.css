@@ -1,0 +1,222 @@
+/* ============================================================
+   typography.css — Global Typography Overrides
+   Ensures minimum readable sizes throughout all boxes/cards
+   ============================================================ */
+
+/* ── SECTION LAYOUT ── */
+section { padding: 96px 64px 104px; }
+
+/* ── SECTION HEADERS ── */
+.section-label { font-size: 12px !important; letter-spacing: 0.2em; }
+.section-headline { font-size: 52px !important; margin-bottom: 20px !important; }
+.section-sub { font-size: 18px !important; line-height: 1.85 !important; margin-bottom: 56px !important; }
+
+/* ── ALL CARD / BOX BODY TEXT ── */
+.svc-body,
+.col-body,
+.sf-sub,
+.fee-detail,
+.who-item,
+.expand-body,
+.step-desc,
+.sidebar-item,
+.faq-a-text,
+.faq-a-list li,
+.ss-text,
+.success-body,
+.contact-body,
+.cta-sub,
+.vc-band-body,
+.why-sub,
+.divers-into,
+.result-note,
+.panel-item span,
+.track-desc,
+.pill-type,
+.footer-tagline,
+.footer-link,
+.contact-text,
+.ctrl-hint,
+.attach-note,
+.check-label,
+.disclaimer {
+  font-size: 15px !important;
+  line-height: 1.75 !important;
+}
+
+/* ── CARD TITLES ── */
+.svc-title,
+.why-title,
+.col-title,
+.who-title,
+.result-headline,
+.sim-title {
+  font-size: 17px !important;
+  line-height: 1.35 !important;
+}
+
+/* ── CARD NUMBERED LABELS ── */
+.svc-num,
+.why-num { font-size: 16px !important; }
+
+/* ── LIST ITEMS IN CARDS ── */
+.col-item,
+.expand-point,
+.detail-point,
+.dot-list li,
+.faq-a-list li,
+.ss-text {
+  font-size: 15px !important;
+  line-height: 1.7 !important;
+}
+
+/* ── BADGES & TAGS ── */
+.badge,
+.badge-amber,
+.badge-dim,
+.col-tag,
+.sf-tag,
+.detail-tag,
+.expand-tag,
+.section-label,
+.svc-num,
+.partners-label,
+.footer-col-title,
+.who-title,
+.sidebar-title,
+.pv-label,
+.cta-label,
+.cta-note-label,
+.divers-panel-label,
+.risk-tag,
+.tag-dim,
+.tag-amber,
+.track-label-in,
+.track-label-pro,
+.why-label {
+  font-size: 12px !important;
+  letter-spacing: 0.14em;
+}
+
+/* ── STAT & METRIC CELLS ── */
+.ctx-label,
+.ctx-source,
+.result-big-label,
+.result-cell-label,
+.dl-item,
+.vc-bar-year,
+.vc-bar-val,
+.vc-bar-est,
+.hero-stat-label,
+.stat-label,
+.trust-label,
+.step-of {
+  font-size: 14px !important;
+  line-height: 1.55 !important;
+}
+
+/* ── RESULT BIG NUMBER ── */
+.result-big-num { font-size: 56px !important; }
+.result-cell-num { font-family: var(--font-serif); font-size: 28px !important; }
+.ctx-num { font-size: 40px !important; }
+
+/* ── TAB BUTTONS ── */
+.tab-btn { font-size: 15px !important; padding: 12px 26px !important; }
+
+/* ── FORM ELEMENTS ── */
+.field-label { font-size: 14px !important; }
+.field-input { font-size: 16px !important; padding: 14px 16px !important; }
+.step-title { font-size: 30px !important; }
+.step-desc { font-size: 16px !important; }
+.review-label { font-size: 14px !important; }
+.review-val { font-size: 15px !important; }
+.prog-name { font-size: 14px !important; }
+
+/* ── PILL NAME ── */
+.pill-name { font-size: 15px !important; }
+.pill-type { font-size: 13px !important; }
+.pill-placeholder { font-size: 14px !important; }
+.sf-tag-pill { font-size: 13px !important; }
+
+/* ── FAQ ── */
+.faq-q-text { font-size: 17px !important; line-height: 1.45 !important; }
+.faq-a-text { font-size: 16px !important; line-height: 1.8 !important; }
+
+/* ── FOOTER ── */
+.footer-link { font-size: 15px !important; }
+.footer-legal { font-size: 13px !important; }
+.footer-bottom-link { font-size: 13px !important; }
+.cta-note-text { font-size: 14px !important; }
+
+/* ── HERO STATS ── */
+.hero-stat-num { font-size: 36px !important; }
+.hero-stat-label { font-size: 14px !important; }
+.hero-sub { font-size: 18px !important; max-width: 460px !important; }
+.hero-headline { font-size: 58px !important; }
+
+/* ── NAV ── */
+.nav-link { font-size: 14px !important; }
+.nav-cta { font-size: 14px !important; }
+
+/* ── GATE BADGE & REQ TEXT ── */
+.gate-badge-text { font-size: 14px !important; }
+.req-row-text { font-size: 14px !important; line-height: 1.55 !important; }
+.req-row-text strong { font-size: 15px !important; }
+.req-section-title { font-size: 12px !important; }
+
+/* ── TWO-TRACK BOXES ── */
+.track-desc { font-size: 15px !important; line-height: 1.65 !important; }
+
+/* ── TRUST BADGE ── */
+.trust-badge-text { font-size: 14px !important; line-height: 1.55 !important; }
+
+/* ── WORKFLOW DETAIL ── */
+.detail-title { font-size: 30px !important; }
+.detail-body { font-size: 16px !important; line-height: 1.8 !important; }
+.detail-point { font-size: 15px !important; line-height: 1.65 !important; }
+.step-text { font-size: 14px !important; }
+.step-num { font-size: 13px !important; }
+
+/* ── INVESTMENT ── */
+.ctrl-name { font-size: 15px !important; }
+.ctrl-val { font-size: 22px !important; }
+.ctrl-hint { font-size: 13px !important; }
+.sim-title { font-size: 24px !important; }
+.vc-band-title { font-size: 22px !important; }
+.vc-band-body { font-size: 16px !important; }
+
+/* ── SERVICES EXPAND ── */
+.expand-title { font-size: 28px !important; }
+.expand-body { font-size: 16px !important; }
+.expand-point { font-size: 15px !important; }
+
+/* ── PROBLEM / COMPARE ── */
+.panel-title { font-size: 22px !important; }
+.why-card .why-title { font-size: 15px !important; }
+.why-card .why-sub { font-size: 14px !important; }
+.divers-amount { font-size: 38px !important; }
+
+/* ── PARTNERS ── */
+.col-title { font-size: 26px !important; }
+.col-body { font-size: 15px !important; }
+.sf-title { font-size: 28px !important; }
+
+/* ── LARGER CARD PADDING ── */
+.svc-card { padding: 32px 28px !important; }
+.col-card { padding: 36px 32px 32px !important; }
+.why-card { padding: 24px 20px !important; }
+.faq-q { padding: 22px 24px !important; }
+.faq-a.open-faq, .faq-item.open .faq-a { padding: 0 24px 22px !important; }
+.detail-panel { padding: 40px 40px 36px !important; }
+.form-panel { padding: 40px !important; }
+.sidebar-card { padding: 24px !important; }
+.ctx-card { padding: 26px 24px !important; }
+.sim-controls { padding: 36px 32px !important; }
+.sim-results { padding: 36px 32px !important; }
+.fee-banner { padding: 24px 32px !important; }
+.who-card { padding: 28px !important; }
+.steward-featured { padding: 32px !important; }
+.cta-band { padding: 80px 64px !important; }
+.footer-main { padding: 60px 64px 48px !important; }
+.footer-bottom { padding: 24px 64px !important; }
+.trust-cell { padding: 28px 24px !important; }
