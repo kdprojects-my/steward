@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <meta name="description" content="Steward — Professional oversight infrastructure for direct early-stage biotech investment. A non-profit entity providing family offices the confidence to invest directly in biotech, healthcare, and medical device companies.">
   <meta property="og:title" content="Steward — Biotech Investment Oversight">
   <meta property="og:description" content="Professional oversight infrastructure for direct early-stage biotech investment.">
@@ -176,6 +176,75 @@
     .footer-legal   { font-size: 13px !important; line-height: 1.7 !important; }
     .footer-bottom-link { font-size: 13px !important; }
     .contact-text   { font-size: 15px !important; }
+
+    /* ── NUCLEAR MOBILE FIX — overrides everything ── */
+    @media screen and (max-width: 767px) {
+      * { box-sizing: border-box !important; }
+      body { overflow-x: hidden !important; width: 100% !important; }
+
+      /* Kill ALL multi-column layouts */
+      .three-col, .services-grid, .context-row, .why-grid,
+      .compare-grid, .sim-wrap, .divers-grid, .vc-band,
+      .who-row, .result-grid, .partners-row, .faq-wrap,
+      .req-two-col, .two-track, .expand-points, .cta-note-wrap,
+      .field-row, .trust-strip, .hero-inner, .workflow-wrap,
+      .form-wrap, .footer-main, .cta-band, .contact-band {
+        display: block !important;
+        width: 100% !important;
+        min-width: 0 !important;
+      }
+
+      /* Every direct child of those containers takes full width */
+      .three-col > *, .services-grid > *, .context-row > *,
+      .why-grid > *, .compare-grid > *, .sim-wrap > *,
+      .divers-grid > *, .vc-band > *, .who-row > *,
+      .result-grid > *, .partners-row > *, .faq-wrap > *,
+      .req-two-col > *, .two-track > *, .expand-points > *,
+      .cta-note-wrap > *, .field-row > *, .trust-strip > *,
+      .footer-main > *, .contact-band > * {
+        display: block !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        margin-bottom: 14px !important;
+        float: none !important;
+        flex: none !important;
+        grid-column: auto !important;
+      }
+
+      /* Sections */
+      section { padding: 48px 18px 56px !important; width: 100% !important; }
+      #nav { padding: 0 18px !important; }
+      .nav-link { display: none !important; }
+
+      /* Hero */
+      .hero-right { display: none !important; }
+      .hero-inner { padding: 44px 18px 52px !important; }
+      .hero-headline { font-size: 32px !important; }
+      .hero-ctas { display: flex !important; flex-direction: column !important; }
+      .hero-ctas .btn { width: 100% !important; }
+
+      /* Tabs — wrap */
+      .tab-row { display: flex !important; flex-wrap: wrap !important; width: 100% !important; }
+      .tab-btn { flex: 1 1 30% !important; min-width: 80px !important; font-size: 13px !important; padding: 10px 8px !important; text-align: center !important; }
+
+      /* Progress bar */
+      .progress-wrap { overflow-x: auto !important; }
+      .prog-name { display: none !important; }
+
+      /* Steward featured */
+      .steward-featured { min-width: 0 !important; }
+
+      /* Buttons */
+      .btn-full { width: 100% !important; }
+
+      /* vs divider */
+      .vs-divider { display: none !important; }
+
+      /* Footer */
+      .footer-bottom { flex-direction: column !important; padding: 20px 18px !important; }
+      .cta-right { margin-top: 28px !important; }
+    }
   </style>
   <link rel="stylesheet" href="css/responsive.css">
 </head>
