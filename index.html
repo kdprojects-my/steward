@@ -19,8 +19,165 @@
   <link rel="stylesheet" href="css/modules/workflow.css">
   <link rel="stylesheet" href="css/modules/investment.css">
   <link rel="stylesheet" href="css/modules/sections.css">
-  <!-- Typography overrides — loaded last to ensure minimum readable sizes -->
-  <link rel="stylesheet" href="css/typography.css">
+  <style>
+    /* ── GLOBAL FONT BOOST ── */
+    html { font-size: 18px; }
+    body { font-size: 17px !important; line-height: 1.8 !important; }
+
+    /* Navigation */
+    .nav-logo { font-size: 26px !important; }
+    .nav-link  { font-size: 15px !important; }
+    .nav-cta   { font-size: 15px !important; padding: 9px 18px !important; }
+
+    /* Section headers */
+    .section-label    { font-size: 12px !important; letter-spacing: 0.2em !important; }
+    .section-headline { font-size: 52px !important; line-height: 1.1 !important; }
+    .section-sub      { font-size: 18px !important; line-height: 1.85 !important; }
+
+    /* Hero */
+    .hero-headline      { font-size: 58px !important; }
+    .hero-sub           { font-size: 18px !important; }
+    .hero-stat-num      { font-size: 36px !important; }
+    .hero-stat-label    { font-size: 15px !important; }
+
+    /* Buttons */
+    .btn    { font-size: 15px !important; padding: 14px 28px !important; }
+    .btn-sm { font-size: 14px !important; padding: 10px 20px !important; }
+    .btn-lg { font-size: 16px !important; padding: 16px 36px !important; }
+
+    /* Tabs */
+    .tab-btn { font-size: 15px !important; padding: 12px 26px !important; }
+
+    /* Cards — service cards */
+    .svc-card   { padding: 34px 30px !important; }
+    .svc-num    { font-size: 15px !important; }
+    .svc-title  { font-size: 18px !important; line-height: 1.3 !important; }
+    .svc-body   { font-size: 16px !important; line-height: 1.7 !important; }
+
+    /* Expand panel */
+    .expand-tag   { font-size: 12px !important; }
+    .expand-title { font-size: 30px !important; }
+    .expand-body  { font-size: 17px !important; line-height: 1.8 !important; }
+    .expand-point { font-size: 16px !important; line-height: 1.7 !important; }
+
+    /* Who we work with cards */
+    .col-card   { padding: 36px 32px 32px !important; }
+    .col-tag    { font-size: 12px !important; }
+    .col-title  { font-size: 26px !important; }
+    .col-body   { font-size: 16px !important; line-height: 1.75 !important; }
+    .col-item   { font-size: 15px !important; line-height: 1.6 !important; }
+
+    /* Partner pills / Steward featured */
+    .pill-name        { font-size: 16px !important; }
+    .pill-type        { font-size: 14px !important; }
+    .sf-title         { font-size: 28px !important; }
+    .sf-sub           { font-size: 16px !important; line-height: 1.65 !important; }
+    .sf-tag-pill      { font-size: 14px !important; padding: 6px 12px !important; }
+
+    /* Workflow */
+    .step-text    { font-size: 15px !important; }
+    .step-num     { font-size: 13px !important; }
+    .detail-tag   { font-size: 12px !important; }
+    .detail-title { font-size: 30px !important; }
+    .detail-body  { font-size: 17px !important; line-height: 1.8 !important; }
+    .detail-point { font-size: 16px !important; line-height: 1.7 !important; }
+    .detail-panel { padding: 42px !important; }
+
+    /* Two-track / req boxes */
+    .track-desc      { font-size: 16px !important; line-height: 1.7 !important; }
+    .gate-badge-text { font-size: 15px !important; }
+    .req-row-text    { font-size: 15px !important; line-height: 1.55 !important; }
+    .req-row-text strong { font-size: 16px !important; }
+    .trust-badge-text { font-size: 15px !important; line-height: 1.55 !important; }
+
+    /* Investment simulator */
+    .ctx-num          { font-size: 44px !important; }
+    .ctx-label        { font-size: 15px !important; line-height: 1.55 !important; }
+    .ctx-source       { font-size: 13px !important; }
+    .ctx-card         { padding: 28px 24px !important; }
+    .sim-title        { font-size: 26px !important; }
+    .ctrl-name        { font-size: 16px !important; }
+    .ctrl-val         { font-size: 24px !important; }
+    .ctrl-hint        { font-size: 14px !important; }
+    .result-headline  { font-size: 24px !important; }
+    .result-big-num   { font-size: 58px !important; }
+    .result-big-label { font-size: 15px !important; }
+    .result-cell-num  { font-size: 28px !important; }
+    .result-cell-label{ font-size: 14px !important; }
+    .result-note      { font-size: 14px !important; line-height: 1.65 !important; }
+    .sim-controls, .sim-results { padding: 36px 32px !important; }
+    .vc-band-title    { font-size: 24px !important; }
+    .vc-band-body     { font-size: 16px !important; line-height: 1.75 !important; }
+    .vc-bar-year      { font-size: 14px !important; }
+    .vc-bar-val       { font-size: 14px !important; }
+    .vc-bar-est       { font-size: 13px !important; }
+    .dl-item          { font-size: 14px !important; }
+    .pv-label         { font-size: 12px !important; }
+    .disclaimer       { font-size: 13px !important; line-height: 1.7 !important; }
+
+    /* Problem section */
+    .panel-title      { font-size: 22px !important; }
+    .panel-item span  { font-size: 16px !important; line-height: 1.65 !important; }
+    .why-num          { font-size: 28px !important; }
+    .why-title        { font-size: 16px !important; }
+    .why-sub          { font-size: 15px !important; line-height: 1.6 !important; }
+    .why-card         { padding: 26px 22px !important; }
+    .divers-amount    { font-size: 40px !important; }
+
+    /* Application form */
+    .step-title  { font-size: 32px !important; }
+    .step-desc   { font-size: 17px !important; }
+    .field-label { font-size: 15px !important; }
+    .field-input { font-size: 16px !important; padding: 14px 16px !important; }
+    .form-panel  { padding: 44px !important; }
+    .sidebar-card { padding: 26px !important; }
+    .sidebar-title { font-size: 13px !important; }
+    .sidebar-item  { font-size: 15px !important; line-height: 1.6 !important; }
+    .review-label  { font-size: 15px !important; }
+    .review-val    { font-size: 15px !important; }
+    .prog-name     { font-size: 15px !important; }
+    .success-title { font-size: 34px !important; }
+    .success-body  { font-size: 17px !important; }
+    .ss-text       { font-size: 15px !important; line-height: 1.65 !important; }
+    .check-label   { font-size: 15px !important; line-height: 1.5 !important; }
+
+    /* FAQ */
+    .faq-q       { padding: 22px 24px !important; }
+    .faq-q-text  { font-size: 17px !important; line-height: 1.45 !important; }
+    .faq-a-text  { font-size: 16px !important; line-height: 1.8 !important; }
+    .faq-a-list li { font-size: 15px !important; line-height: 1.65 !important; }
+    .contact-title { font-size: 28px !important; }
+    .contact-body  { font-size: 16px !important; line-height: 1.7 !important; }
+
+    /* Services who-cards */
+    .who-card  { padding: 30px !important; }
+    .who-title { font-size: 13px !important; }
+    .who-item  { font-size: 16px !important; line-height: 1.65 !important; }
+    .fee-title  { font-size: 24px !important; }
+    .fee-sub    { font-size: 15px !important; }
+    .fee-detail { font-size: 16px !important; line-height: 1.7 !important; }
+    .fee-banner { padding: 26px 36px !important; }
+
+    /* Trust strip */
+    .trust-cell  { padding: 30px 26px !important; }
+    .trust-num   { font-size: 32px !important; }
+    .trust-label { font-size: 15px !important; line-height: 1.55 !important; }
+
+    /* Footer */
+    .cta-headline   { font-size: 42px !important; }
+    .cta-sub        { font-size: 17px !important; }
+    .cta-note-text  { font-size: 15px !important; }
+    .cta-band       { padding: 80px 64px !important; }
+    .footer-main    { padding: 60px 64px 48px !important; }
+    .footer-bottom  { padding: 24px 64px !important; }
+    .footer-col-title { font-size: 13px !important; }
+    .footer-link    { font-size: 16px !important; }
+    .footer-tagline { font-size: 15px !important; }
+    .footer-legal   { font-size: 13px !important; line-height: 1.7 !important; }
+    .footer-bottom-link { font-size: 13px !important; }
+    .contact-text   { font-size: 15px !important; }
+  </style>
+  <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
 
