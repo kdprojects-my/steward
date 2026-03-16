@@ -3,92 +3,70 @@
    Steward Oversight Platform
    ============================================================ */
 
-/* ── TABLET: 768px – 1024px ── */
-@media (max-width: 1024px) {
+/* ================================================================
+   TABLET: 768px – 1100px
+   ================================================================ */
+@media screen and (max-width: 1100px) {
 
-  :root { --section-pad: 72px 40px 80px; }
-  section { padding: 72px 40px 80px !important; }
+  section { padding: 64px 36px 72px !important; }
 
-  /* Nav */
-  #nav { padding: 0 32px; }
-  .nav-links .nav-link { display: none; }
+  .hero-inner { display: block !important; padding: 56px 36px !important; }
+  .hero-right { display: none !important; }
+  .hero-headline { font-size: 44px !important; }
+  .section-headline { font-size: 40px !important; }
 
-  /* Hero */
-  .hero-inner {
-    grid-template-columns: 1fr !important;
-    padding: 60px 40px !important;
-    min-height: auto !important;
-  }
-  .hero-right { display: none; }
-  .hero-headline { font-size: 46px !important; }
-  .hero-sub { max-width: 100% !important; }
-
-  /* Section headlines */
-  .section-headline { font-size: 42px !important; }
-
-  /* Grids → 2 col */
-  .three-col       { grid-template-columns: 1fr 1fr !important; }
-  .context-row     { grid-template-columns: 1fr 1fr !important; }
-  .why-grid        { grid-template-columns: 1fr 1fr !important; }
-  .compare-grid    { grid-template-columns: 1fr !important; }
-  .sim-wrap        { grid-template-columns: 1fr !important; }
-  .divers-grid     { grid-template-columns: 1fr !important; }
-  .vs-divider      { display: none; }
-  .vc-band         { grid-template-columns: 1fr !important; }
-  .who-row         { grid-template-columns: 1fr !important; }
-  .cta-band        { grid-template-columns: 1fr !important; padding: 56px 40px !important; }
-  .footer-main     { grid-template-columns: 1fr 1fr !important; padding: 48px 40px !important; }
-  .trust-strip     { grid-template-columns: 1fr 1fr !important; }
-  .partners-row    { grid-template-columns: 1fr !important; }
-  .steward-featured { min-width: auto !important; }
-  .partner-side    { flex-direction: row !important; }
-
-  /* Workflow */
-  .workflow-wrap   { grid-template-columns: 1fr !important; }
-  .step-list       { display: none; }
-
-  /* Form */
-  .form-wrap       { grid-template-columns: 1fr !important; }
-  .sidebar         { display: none; }
-  .field-row       { grid-template-columns: 1fr !important; }
-
-  /* FAQ */
-  .faq-wrap        { grid-template-columns: 1fr !important; }
-  .contact-band    { grid-template-columns: 1fr !important; gap: 20px !important; }
+  .three-col { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 16px !important; }
+  .three-col .col-card:last-child { grid-column: 1 / -1 !important; max-width: 520px !important; margin: 0 auto !important; width: 100% !important; }
+  .services-grid { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 14px !important; }
+  .context-row { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 14px !important; }
+  .why-grid { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 12px !important; }
+  .sim-wrap { display: grid !important; grid-template-columns: 1fr !important; gap: 20px !important; }
+  .vc-band { display: grid !important; grid-template-columns: 1fr !important; gap: 24px !important; }
+  .compare-grid { display: grid !important; grid-template-columns: 1fr !important; gap: 16px !important; }
+  .divers-grid { display: grid !important; grid-template-columns: 1fr !important; gap: 16px !important; }
+  .vs-divider { display: none !important; }
+  .who-row { display: grid !important; grid-template-columns: 1fr !important; gap: 14px !important; }
+  .partners-row { display: grid !important; grid-template-columns: 1fr !important; gap: 14px !important; }
+  .partner-side { display: flex !important; flex-direction: row !important; gap: 12px !important; }
+  .workflow-wrap { display: grid !important; grid-template-columns: 1fr !important; }
+  .step-list { display: none !important; }
+  .form-wrap { display: grid !important; grid-template-columns: 1fr !important; }
+  .sidebar { display: none !important; }
+  .faq-wrap { display: grid !important; grid-template-columns: 1fr !important; }
+  .trust-strip { display: grid !important; grid-template-columns: 1fr 1fr !important; }
+  .cta-band { display: block !important; padding: 56px 36px !important; }
+  .cta-right { margin-top: 28px !important; }
+  .footer-main { display: grid !important; grid-template-columns: 1fr 1fr !important; padding: 48px 36px 40px !important; }
+  .contact-band { display: grid !important; grid-template-columns: 1fr !important; gap: 20px !important; }
 }
 
-/* ── MOBILE: up to 767px ── */
-@media (max-width: 767px) {
+/* ================================================================
+   MOBILE: up to 767px
+   ALL multi-column layouts -> single column, no exceptions
+   ================================================================ */
+@media screen and (max-width: 767px) {
 
-  section { padding: 56px 24px 64px !important; }
+  section { padding: 52px 20px 60px !important; }
 
-  /* Nav */
-  #nav { padding: 0 20px; height: 56px; }
-  .nav-links { gap: 0; }
-  .nav-link  { display: none; }
-  .nav-logo  { font-size: 22px !important; }
+  #nav { padding: 0 20px !important; height: 56px !important; }
+  .nav-logo { font-size: 22px !important; }
+  .nav-link { display: none !important; }
 
-  /* Hero */
-  .hero-inner {
-    grid-template-columns: 1fr !important;
-    padding: 48px 24px 56px !important;
-    gap: 0 !important;
-  }
-  .hero-right  { display: none; }
-  .hero-headline { font-size: 36px !important; line-height: 1.12 !important; }
-  .hero-sub      { font-size: 16px !important; }
-  .hero-ctas     { flex-direction: column !important; }
-  .hero-ctas .btn { width: 100% !important; text-align: center !important; }
-  .hero-stats    { gap: 20px !important; flex-wrap: wrap; }
+  .hero-inner { display: block !important; padding: 44px 20px 52px !important; }
+  .hero-right { display: none !important; }
+  .hero-headline { font-size: 34px !important; line-height: 1.12 !important; }
+  .hero-sub { font-size: 16px !important; max-width: 100% !important; }
+  .hero-ctas { flex-direction: column !important; gap: 12px !important; }
+  .hero-ctas .btn { width: 100% !important; justify-content: center !important; }
+  .hero-stats { gap: 18px !important; flex-wrap: wrap !important; }
   .hero-stat-num { font-size: 28px !important; }
 
-  /* Section typography */
-  .section-headline { font-size: 32px !important; line-height: 1.15 !important; }
-  .section-sub      { font-size: 16px !important; margin-bottom: 36px !important; }
-  .section-label    { font-size: 11px !important; }
+  .section-headline { font-size: 30px !important; line-height: 1.15 !important; }
+  .section-sub { font-size: 15px !important; margin-bottom: 32px !important; }
 
-  /* All multi-col grids → single column */
+  /* SINGLE COLUMN - ALL GRIDS */
   .three-col,
+  .services-grid,
   .context-row,
   .why-grid,
   .compare-grid,
@@ -98,112 +76,122 @@
   .who-row,
   .result-grid,
   .partners-row,
-  .footer-main,
-  .trust-strip,
+  .faq-wrap,
   .req-two-col,
   .two-track,
   .expand-points,
-  .cta-note-wrap {
+  .cta-note-wrap,
+  .field-row {
+    display: grid !important;
     grid-template-columns: 1fr !important;
+    gap: 14px !important;
+    width: 100% !important;
+    min-width: 0 !important;
   }
 
-  .vs-divider { display: none; }
+  .three-col .col-card:last-child { grid-column: auto !important; max-width: 100% !important; }
 
-  /* Steward featured */
-  .steward-featured { min-width: auto !important; }
-  .partner-side     { flex-direction: column !important; }
+  .vs-divider { display: none !important; }
+  .step-list { display: none !important; }
+  .sidebar { display: none !important; }
 
-  /* Cards */
-  .col-card     { padding: 28px 22px !important; }
-  .svc-card     { padding: 26px 22px !important; }
-  .why-card     { padding: 22px 18px !important; }
-  .ctx-card     { padding: 22px 20px !important; }
-  .detail-panel { padding: 28px 24px !important; }
-  .form-panel   { padding: 28px 22px !important; }
-  .trust-cell   { padding: 22px 18px !important; }
-  .fee-banner   { flex-direction: column !important; gap: 16px !important; padding: 22px !important; }
-  .fee-banner-left { gap: 12px; }
+  /* CARD WIDTHS - prevent overflow */
+  .col-card, .svc-card, .ctx-card, .why-card, .who-card,
+  .panel-old, .panel-new, .divers-panel, .steward-featured,
+  .partner-pill, .result-cell, .faq-item {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
 
-  /* Typography in cards */
-  .col-title    { font-size: 22px !important; }
-  .col-body     { font-size: 15px !important; }
-  .col-item     { font-size: 14px !important; }
-  .svc-title    { font-size: 17px !important; }
-  .svc-body     { font-size: 15px !important; }
-  .faq-q-text   { font-size: 16px !important; }
-  .faq-a-text   { font-size: 15px !important; }
-  .panel-title  { font-size: 20px !important; }
-  .panel-item span { font-size: 15px !important; }
-  .why-title    { font-size: 15px !important; }
-  .why-sub      { font-size: 14px !important; }
-  .expand-title { font-size: 24px !important; }
-  .expand-body  { font-size: 15px !important; }
-  .expand-point { font-size: 14px !important; }
-  .detail-title { font-size: 24px !important; }
-  .detail-body  { font-size: 15px !important; }
-  .detail-point { font-size: 14px !important; }
-  .who-item     { font-size: 15px !important; }
-
-  /* Simulator */
-  .sim-controls,
-  .sim-results  { padding: 28px 22px !important; }
-  .result-big-num { font-size: 44px !important; }
-  .ctx-num        { font-size: 36px !important; }
-  .ctx-label      { font-size: 14px !important; }
-
-  /* Workflow */
-  .workflow-wrap { grid-template-columns: 1fr !important; }
-  .step-list     { display: none; }
-  .tab-row       { flex-wrap: wrap !important; width: 100% !important; }
-  .tab-btn       { font-size: 14px !important; padding: 10px 16px !important; flex: 1; text-align: center; }
-
-  /* Application form */
-  .form-wrap     { grid-template-columns: 1fr !important; }
-  .sidebar       { display: none; }
-  .field-row     { grid-template-columns: 1fr !important; }
-  .progress-wrap { overflow-x: auto; padding-bottom: 8px; }
-  .prog-name     { display: none; }
-  .step-title    { font-size: 26px !important; }
-  .step-desc     { font-size: 15px !important; }
-
-  /* FAQ */
-  .faq-wrap    { grid-template-columns: 1fr !important; }
-  .contact-band { grid-template-columns: 1fr !important; padding: 28px 22px !important; }
+  /* CARD PADDING */
+  .col-card { padding: 26px 20px !important; }
+  .svc-card { padding: 24px 20px !important; }
+  .why-card { padding: 20px 18px !important; }
+  .ctx-card { padding: 22px 18px !important; }
+  .detail-panel { padding: 26px 20px !important; }
+  .form-panel { padding: 26px 20px !important; }
+  .fee-banner { flex-direction: column !important; gap: 16px !important; padding: 22px 20px !important; }
+  .fee-banner-left { flex-direction: row !important; align-items: center !important; }
+  .contact-band { grid-template-columns: 1fr !important; padding: 26px 20px !important; }
   .contact-band .btn { width: 100% !important; }
+  .sim-controls, .sim-results { padding: 26px 20px !important; }
 
-  /* Footer CTA */
-  .cta-band { grid-template-columns: 1fr !important; padding: 48px 24px !important; }
-  .cta-right { width: 100% !important; }
-  .cta-headline { font-size: 32px !important; }
-  .cta-sub      { font-size: 16px !important; }
-  .btn-full     { font-size: 15px !important; }
+  /* CARD TEXT */
+  .col-title { font-size: 22px !important; }
+  .col-body { font-size: 15px !important; }
+  .col-item { font-size: 14px !important; }
+  .svc-title { font-size: 17px !important; }
+  .svc-body { font-size: 15px !important; }
+  .expand-title { font-size: 22px !important; }
+  .expand-body { font-size: 15px !important; }
+  .detail-title { font-size: 22px !important; }
+  .detail-body { font-size: 15px !important; }
+  .faq-q-text { font-size: 16px !important; }
+  .faq-a-text { font-size: 15px !important; }
+  .why-title { font-size: 15px !important; }
+  .why-sub { font-size: 14px !important; }
+  .panel-title { font-size: 20px !important; }
 
-  /* Footer */
-  .footer-main    { grid-template-columns: 1fr !important; padding: 40px 24px 32px !important; gap: 32px !important; }
-  .footer-bottom  { flex-direction: column !important; padding: 20px 24px !important; gap: 16px !important; }
-  .footer-bottom-links { flex-wrap: wrap; gap: 12px !important; }
-  .trust-strip    { grid-template-columns: 1fr 1fr !important; }
+  /* TABS */
+  .tab-row { width: 100% !important; flex-wrap: wrap !important; gap: 6px !important; padding: 5px !important; }
+  .tab-btn { font-size: 13px !important; padding: 9px 10px !important; flex: 1 !important; text-align: center !important; min-width: 0 !important; }
 
-  /* Dot grid — smaller dots on mobile */
-  .pdot { width: 22px !important; height: 22px !important; }
+  /* SIMULATOR */
+  .result-big-num { font-size: 42px !important; }
+  .ctx-num { font-size: 34px !important; }
+  .ctrl-val { font-size: 20px !important; }
+  .result-cell-num { font-size: 24px !important; }
 
-  /* Divers panel */
+  /* WORKFLOW */
+  .workflow-wrap { display: block !important; }
+
+  /* FORM */
+  .form-wrap { display: block !important; }
+  .progress-wrap { overflow-x: auto !important; -webkit-overflow-scrolling: touch !important; padding-bottom: 8px !important; }
+  .prog-name { display: none !important; }
+  .step-title { font-size: 24px !important; }
+
+  /* PARTNERS */
+  .partners-row { display: block !important; }
+  .partner-side { display: flex !important; flex-direction: column !important; gap: 12px !important; margin-bottom: 12px !important; }
+  .steward-featured { min-width: 0 !important; margin: 0 !important; width: 100% !important; }
+  .sf-tags { gap: 6px !important; }
+  .sf-tag-pill { font-size: 12px !important; padding: 5px 10px !important; }
+
+  /* TRUST STRIP */
+  .trust-strip { grid-template-columns: 1fr 1fr !important; }
+  .trust-cell { padding: 20px 16px !important; }
+  .trust-num { font-size: 22px !important; }
+  .trust-label { font-size: 13px !important; }
+
+  /* FOOTER */
+  .cta-band { display: block !important; padding: 44px 20px !important; }
+  .cta-right { width: 100% !important; margin-top: 32px !important; }
+  .cta-headline { font-size: 30px !important; }
+  .footer-main { display: block !important; padding: 40px 20px 32px !important; }
+  .footer-main > div { margin-bottom: 32px !important; }
+  .footer-main > div:last-child { margin-bottom: 0 !important; }
+  .footer-bottom { flex-direction: column !important; align-items: flex-start !important; padding: 20px !important; gap: 14px !important; }
+  .footer-bottom-links { flex-wrap: wrap !important; gap: 12px !important; }
+
+  /* DOTS */
+  .dot-grid { gap: 5px !important; }
+  .pdot { width: 22px !important; height: 22px !important; font-size: 8px !important; }
+  .dot-many { width: 18px !important; height: 18px !important; }
+
+  /* DIVERS PANEL */
   .divers-panel { padding: 22px 18px !important; }
   .divers-amount { font-size: 32px !important; }
-
-  /* Nav mobile — hamburger placeholder */
-  #nav-mobile-hint {
-    font-size: 13px;
-    color: var(--text-dim);
-    display: block;
-  }
 }
 
-/* ── VERY SMALL: under 400px ── */
-@media (max-width: 400px) {
-  section { padding: 48px 18px 56px !important; }
-  #nav { padding: 0 18px; }
-  .hero-headline { font-size: 30px !important; }
-  .section-headline { font-size: 28px !important; }
+/* VERY SMALL: under 400px */
+@media screen and (max-width: 400px) {
+  section { padding: 44px 16px 52px !important; }
+  #nav { padding: 0 16px !important; }
+  .hero-headline { font-size: 28px !important; }
+  .section-headline { font-size: 26px !important; }
   .trust-strip { grid-template-columns: 1fr !important; }
+  .tab-btn { font-size: 12px !important; padding: 8px 6px !important; }
 }
