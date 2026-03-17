@@ -307,76 +307,14 @@
 
     <!-- Hero Diagram -->
     <div class="hero-right">
-      <svg width="100%" viewBox="0 0 320 440" style="max-width:320px">
-        <defs>
-          <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
-            <path d="M2 2L8 5L2 8" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </marker>
-        </defs>
-
-        <circle cx="160" cy="218" r="130" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-        <circle cx="160" cy="218" r="88"  fill="none" stroke="rgba(255,255,255,0.025)" stroke-width="0.5"/>
-
-        <!-- "Final review before investing" label + line -->
-        <text x="160" y="10" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="11" fill="rgba(255,255,255,0.32)">Final review before investing</text>
-        <line class="flow-line" x1="196" y1="17" x2="138" y2="17" stroke="rgba(255,255,255,0.4)" stroke-width="1" opacity="0.8" marker-end="url(#ah)"/>
-
-        <!-- TOP LEFT: Family Office -->
-        <rect x="14" y="30" width="122" height="68" rx="8" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"/>
-        <text x="75" y="51"  text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="14" font-weight="500" fill="rgba(255,255,255,0.88)">Family Office</text>
-        <text x="75" y="66"  text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="14" fill="rgba(255,255,255,0.4)">Direct investor</text>
-        <text x="75" y="80"  text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="11" fill="rgba(255,255,255,0.28)">← Consolidated reports</text>
-        <text x="75" y="92"  text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="11" fill="rgba(200,146,42,0.55)">Capital commitment →</text>
-
-        <!-- TOP RIGHT: Law Firm -->
-        <rect x="184" y="30" width="122" height="68" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
-        <text x="245" y="51"  text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="14" font-weight="500" fill="rgba(255,255,255,0.75)">Law Firm</text>
-        <text x="245" y="66"  text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="14" fill="rgba(255,255,255,0.38)">IP · Scientific review</text>
-        <text x="245" y="80"  text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="14" fill="rgba(255,255,255,0.38)">Deal terms</text>
-
-        <!-- FAMILY OFFICE → STEWARD -->
-        <line class="flow-line"   x1="96"  y1="100" x2="143" y2="183" stroke="#C8922A" stroke-width="1.2" opacity="0.7" marker-end="url(#ah)"/>
-        <line class="flow-line-r" x1="136" y1="183" x2="88"  y2="100" stroke="rgba(255,255,255,0.25)" stroke-width="0.8" opacity="0.7" marker-end="url(#ah)"/>
-
-        <!-- LAW FIRM → STEWARD -->
-        <line class="flow-line" x1="224" y1="100" x2="177" y2="183" stroke="rgba(255,255,255,0.28)" stroke-width="0.9" opacity="0.65" marker-end="url(#ah)"/>
-
-        <!-- CENTER: Steward -->
-        <circle cx="160" cy="218" r="54" fill="rgba(200,146,42,0.09)" stroke="#C8922A" stroke-width="0.8" class="center-orb"/>
-        <circle cx="160" cy="218" r="38" fill="rgba(200,146,42,0.16)" stroke="#C8922A" stroke-width="0.5"/>
-        <circle cx="160" cy="218" class="pulse-ring" stroke="#C8922A" stroke-width="0.5"/>
-        <text x="160" y="207" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="15" font-weight="500" fill="#e5a83d">STEWARD</text>
-        <text x="160" y="220" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="11" fill="rgba(229,168,61,0.62)">Escrow · Financial controls</text>
-        <text x="160" y="233" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="11" fill="rgba(229,168,61,0.62)">Progress reporting</text>
-
-        <!-- STEWARD → BIOTECH -->
-        <line class="flow-line"   x1="168" y1="256" x2="175" y2="336" stroke="#C8922A" stroke-width="1.2" opacity="0.55" marker-end="url(#ah)"/>
-        <line class="flow-line-r" x1="152" y1="336" x2="145" y2="256" stroke="rgba(255,255,255,0.25)" stroke-width="0.8" opacity="0.6" marker-end="url(#ah)"/>
-
-        <!-- Dots -->
-        <circle cx="160" cy="275" r="2"   fill="rgba(200,146,42,0.35)"/>
-        <circle cx="160" cy="284" r="1.5" fill="rgba(200,146,42,0.2)"/>
-        <circle cx="160" cy="292" r="1"   fill="rgba(200,146,42,0.12)"/>
-
-        <!-- BOTTOM: Biotech -->
-        <rect x="82" y="338" width="156" height="72" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
-        <text x="160" y="358" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="14" font-weight="500" fill="rgba(255,255,255,0.75)">Biotech Co.</text>
-        <text x="160" y="373" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="14" fill="rgba(255,255,255,0.38)">Healthcare · MedDevice</text>
-        <text x="160" y="387" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="11" fill="rgba(255,255,255,0.28)">Funds released when</text>
-        <text x="160" y="399" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="11" fill="rgba(255,255,255,0.28)">funding goal is reached</text>
-
-<section style="margin-top: 48px;">
-  <p style="font-family: 'DM Sans', sans-serif; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #F5A623; text-align: center; margin-bottom: 16px;">How It Works</p>
-  <iframe
-    src="explainer.html"
-    width="100%"
-    height="600px"
-    frameborder="0"
-    scrolling="no"
-    style="border: 1px solid rgba(245,166,35,0.15); display: block;">
-  </iframe>
-</section>
-      </svg>
+     <iframe
+  src="explainer.html"
+  width="100%"
+  height="600px"
+  frameborder="0"
+  scrolling="no"
+  style="display:block; margin-top: 32px; border: 1px solid rgba(245,166,35,0.15);">
+</iframe>
     </div>
   </div>
 </section>
