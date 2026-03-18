@@ -69,7 +69,7 @@
   .company-node { font-family: var(--serif); font-size: 1rem; color: var(--muted); letter-spacing: 0.06em; opacity: 0; transition: opacity 0.5s ease 1.8s; }
   .scene.active .company-node { opacity: 1; }
 
-  .portfolio-grid { display: grid; grid-template-columns: repeat(10, 1fr); gap: 6px; margin-top: 28px; width: min(500px, 85vw); opacity: 0; transition: opacity 0.4s ease 0.4s; }
+  .portfolio-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-top: 28px; width: min(420px, 85vw); opacity: 0; transition: opacity 0.4s ease 0.4s; }
   .scene.active .portfolio-grid { opacity: 1; }
   .p-dot { aspect-ratio: 1; border-radius: 3px; background: var(--navy-light); border: 1px solid rgba(245,166,35,0.1); transform: scale(0); transition: transform 0.25s ease; }
   .p-dot.amber-bright { background: var(--amber); border-color: var(--amber); }
@@ -100,9 +100,9 @@
   .module-num { font-family: var(--serif); font-size: 1.3rem; color: var(--amber); line-height: 1; }
   .module-name { font-family: var(--sans); font-size: 0.78rem; color: var(--muted); margin-top: 4px; line-height: 1.4; }
 
-  .fees-layout { display: flex; gap: 16px; margin-top: 28px; flex-wrap: wrap; justify-content: center; opacity: 0; transform: translateY(14px); transition: all 0.5s ease 0.4s; }
+  .fees-layout { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-top: 28px; width: min(740px, 92%); opacity: 0; transform: translateY(14px); transition: all 0.5s ease 0.4s; }
   .scene.active .fees-layout { opacity: 1; transform: none; }
-  .fee-card { background: var(--navy-light); border: 1px solid rgba(245,166,35,0.12); padding: 24px 28px; text-align: center; min-width: 160px; }
+  .fee-card { background: var(--navy-light); border: 1px solid rgba(245,166,35,0.12); padding: 18px 12px; text-align: center; }
   .fee-icon { font-size: 1.8rem; margin-bottom: 10px; }
   .fee-value { font-family: var(--serif); font-size: 1.8rem; color: var(--amber); }
   .fee-label { font-size: 0.78rem; color: var(--muted); margin-top: 4px; line-height: 1.5; }
@@ -153,11 +153,32 @@
 <div id="wordmark">Steward<span>.</span></div>
 <div id="voice-bar"><div class="vbars"><div class="vb"></div><div class="vb"></div><div class="vb"></div><div class="vb"></div></div><span>Narrating</span></div>
 
-<div id="no-speech" class="show">
-  <div class="ns-box">
-    <h3>Enable Narration</h3>
-    <p>This explainer includes an AI voiceover. For the best experience use <strong>Chrome</strong> or <strong>Edge</strong> on desktop. Click below to start — your browser needs a user gesture to enable audio.</p>
-    <button id="start-btn">▶ &nbsp;Start Explainer</button>
+<style>
+@keyframes fadeup{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes pulse-ring{0%{box-shadow:0 0 0 0 rgba(245,166,35,0.35)}70%{box-shadow:0 0 0 20px rgba(245,166,35,0)}100%{box-shadow:0 0 0 0 rgba(245,166,35,0)}}
+</style>
+
+<div id="preview-overlay" onclick="startFromPreview()" style="position:fixed;inset:0;z-index:200;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px 30px 70px;background:var(--navy);">
+  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(245,166,35,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(245,166,35,0.04) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;"></div>
+  <div style="position:absolute;width:400px;height:400px;background:rgba(245,166,35,0.07);border-radius:50%;filter:blur(70px);top:-10%;left:-10%;pointer-events:none;"></div>
+
+  <div style="opacity:0;animation:fadeup 0.5s ease 0.1s forwards;font-family:var(--sans);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--amber);text-align:center;margin-bottom:12px;">The Economics — Steward Explainer</div>
+
+  <div style="opacity:0;animation:fadeup 0.5s ease 0.2s forwards;font-family:var(--serif);font-size:clamp(1.5rem,4vw,2.5rem);font-weight:300;line-height:1.15;text-align:center;color:var(--white);max-width:660px;margin-bottom:20px;">No conflicts. <em style="font-style:italic;color:var(--amber);">No upfront cost. Ever.</em></div>
+
+  <div style="opacity:0;animation:fadeup 0.5s ease 0.32s forwards;display:grid;grid-template-columns:repeat(5,1fr);gap:8px;width:min(680px,92%);">
+    <div style="background:var(--nl);border:1px solid rgba(245,166,35,0.15);padding:14px 10px;text-align:center;"><div style="font-size:1.3rem;margin-bottom:6px;">🚫</div><div style="font-family:var(--serif);font-size:1.25rem;color:var(--amber);">$0</div><div style="font-size:0.68rem;color:var(--muted);margin-top:3px;line-height:1.45;">Upfront fee<br>for scientists</div></div>
+    <div style="background:var(--nl);border:1px solid rgba(245,166,35,0.15);padding:14px 10px;text-align:center;"><div style="font-size:1.3rem;margin-bottom:6px;">🔒</div><div style="font-family:var(--serif);font-size:1.25rem;color:var(--amber);">Escrow</div><div style="font-size:0.68rem;color:var(--muted);margin-top:3px;line-height:1.45;">Capital returned<br>if funding goal not met</div></div>
+    <div style="background:var(--nl);border:1px solid rgba(245,166,35,0.15);padding:14px 10px;text-align:center;"><div style="font-size:1.3rem;margin-bottom:6px;">📊</div><div style="font-family:var(--serif);font-size:1.25rem;color:var(--amber);">Flat</div><div style="font-size:0.68rem;color:var(--muted);margin-top:3px;line-height:1.45;">Fee paid by companies<br>after funding goal reached</div></div>
+    <div style="background:var(--nl);border:1px solid rgba(245,166,35,0.15);padding:14px 10px;text-align:center;"><div style="font-size:1.3rem;margin-bottom:6px;">🚫</div><div style="font-family:var(--serif);font-size:1.25rem;color:var(--amber);">$0</div><div style="font-size:0.68rem;color:var(--muted);margin-top:3px;line-height:1.45;">No fees for<br>family offices — ever.<br>Stock issued directly.</div></div>
+    <div style="background:var(--nl);border:1px solid rgba(245,166,35,0.15);padding:14px 10px;text-align:center;"><div style="font-size:1.3rem;margin-bottom:6px;">⚖️</div><div style="font-family:var(--serif);font-size:1.25rem;color:var(--amber);">Non-profit</div><div style="font-size:0.68rem;color:var(--muted);margin-top:3px;line-height:1.45;">Mission-aligned<br>no conflicts</div></div>
+  </div>
+
+  <div style="opacity:0;animation:fadeup 0.5s ease 0.5s forwards;margin-top:28px;display:flex;flex-direction:column;align-items:center;gap:10px;">
+    <div style="width:64px;height:64px;border-radius:50%;background:var(--amber);display:flex;align-items:center;justify-content:center;animation:pulse-ring 2s ease-in-out infinite;">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="#0B1628"><path d="M8 5v14l11-7z"/></svg>
+    </div>
+    <div style="font-family:var(--sans);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--amber);">Click anywhere to watch</div>
   </div>
 </div>
 
@@ -197,7 +218,7 @@
     <div class="mechanism">
       <div class="investors-row" id="investor-dots"></div>
       <div class="arrow-down"></div>
-      <div class="pool-node">$2,000,000<div class="pool-sub">Pooled · Released at goal</div></div>
+      <div class="pool-node">$2,000,000<div class="pool-sub">Pooled · $50K–$250K per investor · Released at funding goal</div></div>
       <div class="arrow-down-2"></div>
       <div class="company-node">→ Biotech Company Funded</div>
     </div>
@@ -205,15 +226,14 @@
 
   <div class="scene" id="s4">
     <div class="eyebrow">The Investor's Advantage</div>
-    <div class="headline">~$100K per company.<br><em>~$2M across 20.</em></div>
-    <div class="portfolio-grid" id="port-grid"></div>
+    <div class="headline">$50K–$250K per company.<br><em>~$2M across ~15 companies.</em></div>
+    <div id="port-grid" style="display:flex;gap:5px;align-items:flex-end;height:80px;width:min(480px,88%);margin-top:20px;opacity:0;transition:opacity 0.4s ease 0.4s;"></div>
     <div class="portfolio-legend">
-      <div class="legend-item"><div class="legend-swatch" style="background:var(--amber)"></div>Top performer (100×)</div>
-      <div class="legend-item"><div class="legend-swatch" style="background:rgba(245,166,35,0.55)"></div>Breakouts (10×)</div>
-      <div class="legend-item"><div class="legend-swatch" style="background:rgba(245,166,35,0.25)"></div>Modest exits</div>
-      <div class="legend-item"><div class="legend-swatch" style="background:var(--navy-mid)"></div>Failed positions</div>
+      <div class="legend-item">━ Investment size (your choice)</div>
+      <div class="legend-item" style="color:var(--amber)">★ Breakout (illustrative)</div>
+      <div class="legend-item">✕ Failed position (illustrative)</div>
     </div>
-    <div class="body-text" style="margin-top:16px;">You only need 1–2 winners. Steward makes 20 positions manageable.</div>
+    <div class="body-text" style="margin-top:16px;">Position size is your choice. Outcomes are independent — a $50K bet can outperform a $250K one. Companies arrive over ~2 years. You decide which to back.</div>
   </div>
 
   <div class="scene" id="s5">
@@ -279,8 +299,8 @@
 const SCENES = [
   { id:'s1', duration:7000,  voice:"Steward. What happens when brilliant science can't find capital — and patient capital can't find credible science? That gap is costing the world breakthroughs." },
   { id:'s2', duration:12000, voice:"There are two worlds that desperately need each other. Scientists spend years developing therapies with real potential — but have no roadmap to institutional capital. Family offices, meanwhile, are bombarded with biotech pitches every single week, but lack the internal expertise to vet them properly. The current system serves neither side." },
-  { id:'s3', duration:11000, voice:"Here is the mechanism that changes everything. A scientist needs two million dollars. Steward pools capital from twenty family offices — each committing approximately one hundred thousand dollars. The scientist hits their target. Funds are held in escrow and released only when the full goal is reached. No upfront fees. No commissions. Both sides win — structurally." },
-  { id:'s4', duration:11000, voice:"For family offices, this creates a powerful diversification effect. Instead of concentrating two million dollars into a single high-stakes bet, you hold positions across twenty carefully vetted biotech companies. You only need one or two to break out for the entire portfolio to perform exceptionally. The math works — and Steward makes twenty positions manageable." },
+  { id:'s3', duration:11000, voice:"Here is the mechanism that changes everything. A scientist needs two million dollars to reach their funding goal. Steward pools capital from approximately fifteen family offices — each committing anywhere from fifty thousand to two hundred and fifty thousand dollars, based on their own conviction. The scientist hits their target. Funds are held in escrow and released only when the full funding goal is reached. No upfront fees. No commissions. Both sides win — structurally." },
+  { id:'s4', duration:14000, voice:"For family offices, this creates a powerful diversification effect. Instead of concentrating two million dollars into a single high-stakes bet, you deploy that capital across approximately fifteen carefully vetted companies — with individual commitments ranging from fifty thousand to two hundred and fifty thousand dollars. The amount you put into each company is entirely your decision. And here is what matters: outcomes are completely independent of position size. A fifty thousand dollar bet can be your biggest winner — and a two hundred and fifty thousand dollar position can fail. Companies are not presented all at once. They arrive over approximately two years as opportunities arise and as companies become eligible. You are never obligated to invest in every one." },
   { id:'s5', duration:11000, voice:"Steward is the independent bridge between both worlds. Scientists submit once, get vetted through a rigorous process, and receive structured funding when their funding goal is reached. Family offices receive pre-screened deal flow, consolidated reporting, and escrow protection — with no operational burden whatsoever. Steward is not a fund. Not a broker. It is independent oversight infrastructure — non-profit, with no conflicts of interest." },
   { id:'s6', duration:11000, voice:"Every company is evaluated through Steward's nine-module framework — covering scientific validity, intellectual property strength, financial governance, team and leadership, regulatory pathway, market opportunity, ESG compliance, milestone tracking, and budget oversight. One consistent, rigorous standard applied to every opportunity that reaches you." },
   { id:'s7', duration:10000, voice:"The economics are simple and fully aligned. Scientists pay nothing upfront — zero fees, zero commission. If a company's funding goal is not reached, all capital is returned in full through escrow. Once funds are committed, portfolio companies cover a flat oversight fee. And for family offices — there are absolutely no fees or commissions whatsoever. Stock is issued directly from the company to the investor. Steward is non-profit. Its only incentive is the quality of the outcome." },
@@ -288,13 +308,54 @@ const SCENES = [
 ];
 
 const MODULES = [['01','Scientific Validity'],['02','IP Strength'],['03','Financial Governance'],['04','Team & Leadership'],['05','Regulatory Pathway'],['06','Market Opportunity'],['07','ESG & Ethics'],['08','Milestone Tracking'],['09','Budget Oversight']];
-const PORTFOLIO = ['amber-bright','amber-mid','amber-mid','amber-low','amber-low','amber-low','grey','grey','grey','grey','grey','grey','grey','grey','grey','grey','grey','grey','grey','grey'];
+const PORTFOLIO = ['ab','am','am','al','al','al','al','gr','gr','gr','gr','gr','gr','gr','gr'];
 
 // Build DOM
+const DOT_AMOUNTS=['$250K','$250K','$200K','$175K','$150K','$150K','$125K','$100K','$100K','$100K','$50K','$50K','$50K','$100K','$150K'];
 const dotCont = document.getElementById('investor-dots');
-for(let i=0;i<20;i++){const d=document.createElement('div');d.className='investor-dot';d.innerHTML=`$100K<div class="dot-label">FO ${i+1}</div>`;d.style.transitionDelay=`${0.5+i*0.05}s`;dotCont.appendChild(d);}
+for(let i=0;i<15;i++){const d=document.createElement('div');d.className='investor-dot';d.innerHTML=`${DOT_AMOUNTS[i]}<div class="dot-label">FO ${i+1}</div>`;d.style.transitionDelay=`${0.5+i*0.05}s`;dotCont.appendChild(d);}
+const BAR_DATA=[
+  {h:100,amt:'$250K',outcome:'fail'},
+  {h:90, amt:'$250K',outcome:null},
+  {h:80, amt:'$200K',outcome:'breakout'},
+  {h:72, amt:'$175K',outcome:null},
+  {h:65, amt:'$150K',outcome:null},
+  {h:65, amt:'$150K',outcome:'fail'},
+  {h:55, amt:'$100K',outcome:'breakout'},
+  {h:55, amt:'$100K',outcome:null},
+  {h:55, amt:'$100K',outcome:null},
+  {h:55, amt:'$100K',outcome:'fail'},
+  {h:44, amt:'$50K', outcome:'breakout'},
+  {h:44, amt:'$50K', outcome:null},
+  {h:44, amt:'$50K', outcome:null},
+  {h:55, amt:'$100K',outcome:null},
+  {h:55, amt:'$100K',outcome:null},
+];
 const pg=document.getElementById('port-grid');
-PORTFOLIO.forEach((cls,i)=>{const d=document.createElement('div');d.className=`p-dot ${cls}`;d.style.transitionDelay=`${0.5+i*0.07}s`;pg.appendChild(d);});
+BAR_DATA.forEach((bar,i)=>{
+  const wrap=document.createElement('div');
+  wrap.style.cssText='flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;position:relative;';
+  const marker=document.createElement('div');
+  marker.style.cssText=`font-size:9px;margin-bottom:3px;line-height:1;min-height:14px;text-align:center;color:${bar.outcome==='breakout'?'#F5A623':'rgba(248,245,239,0.3)'};`;
+  marker.textContent=bar.outcome==='breakout'?'★':bar.outcome==='fail'?'✕':'';
+  const b=document.createElement('div');
+  b.style.cssText=`width:100%;border-radius:2px 2px 0 0;background:rgba(245,166,35,0.2);border-top:1.5px solid rgba(245,166,35,0.38);height:0;transition:height 0.4s ease ${0.5+i*0.05}s;`;
+  b.dataset.h=bar.h;
+  const lbl=document.createElement('div');
+  lbl.style.cssText='font-size:7px;font-family:var(--sans);color:rgba(248,245,239,0.25);margin-top:4px;transform:rotate(-45deg);transform-origin:top left;white-space:nowrap;';
+  lbl.textContent=bar.amt;
+  wrap.appendChild(marker);
+  wrap.appendChild(b);
+  wrap.appendChild(lbl);
+  pg.appendChild(wrap);
+});
+const s4El=document.getElementById('s4');
+const barEls=pg.querySelectorAll('div[data-h]');
+const s4Observer=new MutationObserver(()=>{
+  if(s4El.classList.contains('active')){barEls.forEach(b=>{b.style.height=b.dataset.h+'%';});pg.style.opacity='1';}
+  else{barEls.forEach(b=>{b.style.height='0';});pg.style.opacity='0';}
+});
+s4Observer.observe(s4El,{attributes:true,attributeFilter:['class']});
 const mg=document.getElementById('mod-grid');
 MODULES.forEach(([n,name],i)=>{const d=document.createElement('div');d.className='module-card';d.innerHTML=`<div class="module-num">${n}</div><div class="module-name">${name}</div>`;d.style.transitionDelay=`${0.4+i*0.07}s`;mg.appendChild(d);});
 const dotsEl=document.getElementById('scene-dots');
@@ -427,10 +488,12 @@ window.addEventListener('keydown',e=>{
   if(e.key===' '){ e.preventDefault(); document.getElementById('play-btn').click(); }
 });
 
-document.getElementById('start-btn').onclick=()=>{
-  document.getElementById('no-speech').classList.remove('show');
-  startPlay();
-};
+function startFromPreview(){
+  const overlay = document.getElementById('preview-overlay');
+  overlay.style.transition = 'opacity 0.5s ease';
+  overlay.style.opacity = '0';
+  setTimeout(()=>{ overlay.style.display='none'; startPlay(); }, 500);
+}
 </script>
 </body>
 </html>
