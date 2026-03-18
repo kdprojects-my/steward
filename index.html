@@ -413,7 +413,7 @@
     <p style="font-size:16px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-dim);margin-bottom:20px;">Why hasn't this existed until now</p>
     <div class="why-grid reveal">
       <div class="why-card"><div class="why-num">01</div><div class="why-title">No reporting standard</div><div class="why-sub">Private early-stage holdings have never had a consolidated internal review framework</div></div>
-      <div class="why-card"><div class="why-num">02</div><div class="why-title">Oversight burden</div><div class="why-sub">Managing 20 companies individually is operationally prohibitive without dedicated infrastructure</div></div>
+      <div class="why-card"><div class="why-num">02</div><div class="why-title">Oversight burden</div><div class="why-sub">Managing 15 companies individually is operationally prohibitive without dedicated infrastructure</div></div>
       <div class="why-card"><div class="why-num">03</div><div class="why-title">No escrow mechanism</div><div class="why-sub">Capital has historically flowed without the structured release controls investors need</div></div>
       <div class="why-card"><div class="why-num">04</div><div class="why-title">Cost of oversight</div><div class="why-sub">Professional oversight was too expensive — until a shared fee model across companies made it viable</div></div>
     </div>
@@ -865,8 +865,8 @@
   (function() {
     const container = document.getElementById('diversDots');
     if (!container) return;
-    const dots = Array(20).fill(0).map((_, i) => {
-      const cls = i >= 18 ? 'success' : '';
+    const dots = Array(15).fill(0).map((_, i) => {
+      const cls = i >= 13 ? 'success' : '';
       return `<div class="dot-many ${cls}"></div>`;
     });
     container.innerHTML = dots.join('');
