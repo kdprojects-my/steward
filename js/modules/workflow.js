@@ -78,7 +78,7 @@ const WORKFLOW_DATA = {
       tag: 'Step 3 — Family Office',
       title: 'Commit ~$50K–$250K per position — directly, not through a fund',
       body: 'Capital commitments are made directly to each company\'s escrow — no fund manager, no management fee, no blind pool. You know exactly where every dollar is going. Each company\'s full funding goal is reached by aggregating multiple ~$50K–$250K per position commitments from different family offices.',
-      points: ['~$50K–$250K per position across up to 15 companies', 'Direct investment — full visibility into each holding', 'Capital held in Steward-managed escrow until goal is met', '~$2M total deployed over a five-year window']
+      points: ['~$50K–$250K per position across up to 15 companies', 'Direct investment — full visibility into each holding', 'Capital held in Steward-managed escrow until goal is met', '~$2M total deployed over a two-year window']
     },
     {
       label: 'Escrow confirmation',
