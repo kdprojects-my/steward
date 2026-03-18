@@ -25,13 +25,13 @@ const WORKFLOW_DATA = {
       tag: 'Step 3 — Biotech',
       title: 'Terms structured and presented to investors',
       body: 'Once the review is complete, investment terms are finalised. Family offices are presented with the opportunity alongside the law firm\'s independent review.',
-      points: ['Investment terms structured with legal guidance', 'Steward prepares a standardised investor brief', 'Family offices invited to commit at ~$100K per position', 'Funding goal established with a defined close date']
+      points: ['Investment terms structured with legal guidance', 'Steward prepares a standardised investor brief', 'Family offices invited to commit at ~$50K–$250K per position', 'Funding goal established with a defined close date']
     },
     {
       label: 'Escrow & funding goal',
       tag: 'Step 4 — Biotech',
       title: 'Capital held in escrow until your goal is reached',
-      body: 'Committed capital from family offices is held in escrow by Steward. Funds are only released to the company once the full funding goal has been met — protecting both parties. Your funding goal is reached by combining multiple ~$100K commitments from different family offices.',
+      body: 'Committed capital from family offices is held in escrow by Steward. Funds are only released to the company once the full funding goal has been met — protecting both parties. Your funding goal is reached by combining multiple ~$50K–$250K commitments from different family offices.',
       points: ['No capital accessed until funding threshold is reached', 'Escrow managed by Steward\'s retained escrow attorney', 'Real-time funding progress visible to all parties', 'Full goal reached → funds released to company']
     },
     {
@@ -76,9 +76,9 @@ const WORKFLOW_DATA = {
     {
       label: 'Commit capital',
       tag: 'Step 3 — Family Office',
-      title: 'Commit ~$100K per position — directly, not through a fund',
-      body: 'Capital commitments are made directly to each company\'s escrow — no fund manager, no management fee, no blind pool. You know exactly where every dollar is going. Each company\'s full funding goal is reached by aggregating multiple ~$100K commitments from different family offices.',
-      points: ['~$100K per position across up to 20 companies', 'Direct investment — full visibility into each holding', 'Capital held in Steward-managed escrow until goal is met', '~$2M total deployed over a five-year window']
+      title: 'Commit ~$50K–$250K per position — directly, not through a fund',
+      body: 'Capital commitments are made directly to each company\'s escrow — no fund manager, no management fee, no blind pool. You know exactly where every dollar is going. Each company\'s full funding goal is reached by aggregating multiple ~$50K–$250K per position commitments from different family offices.',
+      points: ['~$50K–$250K per position across up to 15 companies', 'Direct investment — full visibility into each holding', 'Capital held in Steward-managed escrow until goal is met', '~$2M total deployed over a five-year window']
     },
     {
       label: 'Escrow confirmation',
@@ -91,7 +91,7 @@ const WORKFLOW_DATA = {
       label: 'Ongoing reporting',
       tag: 'Step 5 — Family Office',
       title: 'Consolidated reporting across your entire portfolio',
-      body: 'Rather than tracking 20 companies individually, Steward delivers a single consolidated report covering all your portfolio positions — organised and structured for internal review on a defined schedule.',
+      body: 'Rather than tracking 15 companies individually, Steward delivers a single consolidated report covering all your portfolio positions — organised and structured for internal review on a defined schedule.',
       points: ['Semi-annual consolidated internal financial review', 'Budget performance and variance analysis per company', 'Quarterly milestone status across all holdings', 'Documents structured for your internal review needs']
     },
     {
@@ -105,7 +105,7 @@ const WORKFLOW_DATA = {
       label: 'Exit & returns',
       tag: 'Step 7 — Family Office',
       title: 'Portfolio outcomes over a 10-year horizon',
-      body: 'The majority of early-stage companies will not succeed — this is expected and built into the model. The portfolio is designed so that a small number of breakout performers drive exceptional aggregate returns over a 10-year horizon, with capped downside of ~$100K per position.',
+      body: 'The majority of early-stage companies will not succeed — this is expected and built into the model. The portfolio is designed so that a small number of breakout performers drive exceptional aggregate returns over a 10-year horizon, with capped downside of ~$50K–$250K per position.',
       points: ['Full exit reporting and final review per position', 'Portfolio performance summary at each liquidity event', 'Steward coordinates all investor communications at exit', 'Reinvestment options presented for returned capital']
     }
   ],
