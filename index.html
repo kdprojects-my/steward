@@ -876,13 +876,12 @@
 <!--
 
 <!--
-  STEWARD — Logo Badge (v12)
+  STEWARD — Logo Badge (v13)
   Delete all previous versions, paste once before </body>
   Hard refresh: Ctrl+Shift+R / Cmd+Shift+R
 -->
 
 <style>
-  /* ── Shared badge style ───────────────────────────────────── */
   .steward-logo-badge {
     background: #f0ece6;
     border-radius: 14px;
@@ -892,12 +891,13 @@
     box-shadow: 0 2px 12px rgba(0,0,0,0.13);
   }
 
-  /* ── Hero: badge sits above eyebrow, left-aligned ─────────── */
+  /* Hero: badge above eyebrow, indented from left to match content padding */
   .steward-hero-badge-wrap {
     margin-bottom: 20px;
+    padding-left: 2px; /* matches your section's left content start */
   }
 
-  /* ── Other sections: two-col flex row ────────────────────── */
+  /* Other sections: two-col row */
   .steward-section-row {
     display: flex;
     align-items: flex-start;
@@ -909,9 +909,7 @@
     flex: 1 1 0;
     min-width: 0;
   }
-  /* Right col — badge flush with right edge of content boxes.
-     max-width matches typical content container right padding.
-     Adjust padding-right if your layout uses different values. */
+  /* Badge col: no right margin — JS sets it precisely per section */
   .steward-logo-col {
     flex: 0 0 auto;
     display: flex;
@@ -949,7 +947,12 @@
     return div;
   }
 
-  /* ── Hero: inject badge ABOVE the first child (eyebrow) ──── */
+  /* Replace any stale badges */
+  document.querySelectorAll('.steward-logo-badge').forEach(function(b) {
+    b.innerHTML = BADGE_SVG;
+  });
+
+  /* ── HERO: badge above eyebrow, left-aligned with content ── */
   function injectHero() {
     var hero = document.getElementById('hero');
     if (!hero) return;
@@ -959,14 +962,24 @@
     wrap.className = 'steward-hero-badge-wrap';
     wrap.appendChild(makeBadge());
 
-    /* Insert before the first visible child */
-    var first = Array.from(hero.children).find(function(el) {
+    /* Find the section's content container to match its left offset */
+    var kids = Array.from(hero.children).filter(function(el) {
       return !['SCRIPT','STYLE','NOSCRIPT'].includes(el.tagName);
     });
-    hero.insertBefore(wrap, first || null);
+    var firstKid = kids[0];
+
+    /* Match left padding of existing content */
+    if (firstKid) {
+      var heroRect  = hero.getBoundingClientRect();
+      var kidRect   = firstKid.getBoundingClientRect();
+      var leftInset = kidRect.left - heroRect.left;
+      if (leftInset > 0) wrap.style.paddingLeft = Math.round(leftInset) + 'px';
+    }
+
+    hero.insertBefore(wrap, firstKid || null);
   }
 
-  /* ── Other sections: badge in right col, aligned to content ─ */
+  /* ── OTHER SECTIONS: right col, badge right = content right ─ */
   function injectSection(section) {
     if (section.querySelector('.steward-section-row')) return;
 
@@ -997,29 +1010,37 @@
     row.appendChild(inner);
     row.appendChild(logoCol);
 
-    /* Align badge top with h1/h2, right edge with content boxes */
     requestAnimationFrame(function() {
-      /* Vertical: push down to meet the heading */
+      /* 1. Vertical: align badge top with heading */
       var heading = inner.querySelector('h1, h2, h3');
       if (heading) {
-        var offset = heading.getBoundingClientRect().top - row.getBoundingClientRect().top;
-        if (offset > 0) logoCol.style.paddingTop = Math.round(offset) + 'px';
+        var vOffset = heading.getBoundingClientRect().top - row.getBoundingClientRect().top;
+        if (vOffset > 0) logoCol.style.paddingTop = Math.round(vOffset) + 'px';
       }
 
-      /* Horizontal: measure right edge of content, align badge to it */
-      var contentRight = inner.getBoundingClientRect().right;
+      /* 2. Horizontal: find the rightmost content box in this section
+            and align badge right edge to match it                     */
+      var allBoxes = inner.querySelectorAll('div, section, article');
+      var maxRight = inner.getBoundingClientRect().right; /* fallback */
+
+      allBoxes.forEach(function(box) {
+        /* Only consider direct visual boxes — skip wrappers wider than content */
+        var r = box.getBoundingClientRect();
+        if (r.width > 40 && r.width < inner.getBoundingClientRect().width * 0.85) {
+          if (r.right > maxRight) maxRight = r.right;
+        }
+      });
+
+      /* Distance from section right edge to content right edge */
       var sectionRight = section.getBoundingClientRect().right;
-      var gap = sectionRight - contentRight;
-      /* gap is the space between content and section edge.
-         Set that as right margin so badge right = content right */
-      logoCol.style.marginRight = Math.max(gap, 0) + 'px';
+      var rightGap = sectionRight - maxRight;
+
+      /* Apply as right margin on the logo column so badge right = content right */
+      if (rightGap > 0) {
+        logoCol.style.marginRight = Math.round(rightGap) + 'px';
+      }
     });
   }
-
-  /* Replace any stale badges */
-  document.querySelectorAll('.steward-logo-badge').forEach(function(b) {
-    b.innerHTML = BADGE_SVG;
-  });
 
   injectHero();
 
