@@ -962,17 +962,32 @@
     wrap.className = 'steward-hero-badge-wrap';
     wrap.appendChild(makeBadge());
 
-    /* Find the section's content container to match its left offset */
+    /* Align badge left with the eyebrow text inside hero.
+       Measure the first text element (p, span, h1, h2, div with text)
+       to find exactly where content starts horizontally.             */
     var kids = Array.from(hero.children).filter(function(el) {
       return !['SCRIPT','STYLE','NOSCRIPT'].includes(el.tagName);
     });
     var firstKid = kids[0];
 
-    /* Match left padding of existing content */
+    /* Walk into nested containers to find the actual text node's x */
+    function findTextLeft(root, heroLeft) {
+      var walker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT);
+      var node = walker.nextNode();
+      while (node) {
+        var tag = node.tagName;
+        if (/^(P|SPAN|H[1-6]|A|STRONG|EM|LABEL)$/.test(tag)) {
+          var r = node.getBoundingClientRect();
+          if (r.width > 20) return r.left - heroLeft;
+        }
+        node = walker.nextNode();
+      }
+      return 0;
+    }
+
     if (firstKid) {
-      var heroRect  = hero.getBoundingClientRect();
-      var kidRect   = firstKid.getBoundingClientRect();
-      var leftInset = kidRect.left - heroRect.left;
+      var heroLeft  = hero.getBoundingClientRect().left;
+      var leftInset = findTextLeft(hero, heroLeft);
       if (leftInset > 0) wrap.style.paddingLeft = Math.round(leftInset) + 'px';
     }
 
