@@ -71,6 +71,24 @@ const FAQ_DATA = [
     list: []
   },
   {
+    audience: 'biotech',
+    q: 'Are there cap table management requirements once funding is committed?',
+    a: 'Yes. Once funding is committed, portfolio companies are required to maintain a professionally managed cap table using a recognised platform such as Carta or equivalent. Companies must certify the number of shares issued to each investor, ensure all equity issuances are accurately recorded, and provide Steward with confirmation that investor equity has been properly documented. These requirements remain in effect throughout the investment period and are a condition of the ongoing oversight relationship.',
+    list: []
+  },
+  {
+    audience: 'biotech',
+    q: 'What financial records and accounting access does Steward require?',
+    a: 'As part of its oversight mandate, Steward requires view-only access to the company\'s accounting system — such as QuickBooks Online — or a maintained shared drive containing bank statements and accounts reconciliation records. All financial records must be current, meaning dated within the last 30 days. Steward may conduct spot checks of accounting books at any time. Failure to maintain current records or provide the required access may result in the suspension of further capital distributions.',
+    list: []
+  },
+  {
+    audience: 'biotech',
+    q: 'Can we make changes to our approved budget after funding is released?',
+    a: 'Material budget changes require prior review and approval by Steward. Any increase exceeding 20% in a single budget line requires a formal waiver with written justification before the increase is incurred — for example, if animal studies were budgeted at $500K and costs are projected to reach $600K, a waiver must be submitted and approved. Salary increases are capped at 3% annually; any compensation increase above this threshold also requires a waiver with explanation. These controls exist to protect investor capital and ensure funds are deployed as represented at the time of commitment.',
+    list: []
+  },
+  {
     audience: 'general',
     q: 'Is Steward a for-profit or non-profit entity?',
     a: 'Steward is structured as a non-profit entity. This is fundamental to the model — Steward\'s mission is to provide professional oversight infrastructure that makes direct early-stage biotech investment viable, not to generate profit from transactions. The variable monthly fee from portfolio companies covers Steward\'s operating costs.',
