@@ -876,7 +876,7 @@
 <!--
 
 <!--
-  STEWARD — Logo Badge (v15)
+  STEWARD — Logo Badge (v16)
   Delete all previous versions, paste once before </body>
   Hard refresh: Ctrl+Shift+R / Cmd+Shift+R
 -->
@@ -891,13 +891,9 @@
     box-shadow: 0 2px 12px rgba(0,0,0,0.13);
     flex-shrink: 0;
   }
-
-  /* Hero: badge floated above eyebrow */
   .steward-hero-badge-wrap {
     margin-bottom: 20px;
   }
-
-  /* Injected into the content container — spans only the content width */
   .steward-inner-row {
     display: flex;
     align-items: flex-start;
@@ -905,17 +901,12 @@
     gap: 48px;
     width: 100%;
   }
-  .steward-inner-left {
-    flex: 1 1 0;
-    min-width: 0;
-  }
+  .steward-inner-left  { flex: 1 1 0; min-width: 0; }
   .steward-inner-right {
     flex: 0 0 auto;
     display: flex;
     align-items: flex-start;
-    justify-content: flex-end;
   }
-
   @media (max-width: 900px) {
     .steward-inner-right     { display: none; }
     .steward-inner-row       { display: block; }
@@ -946,50 +937,79 @@
     return div;
   }
 
-  /* Replace any stale badges */
   document.querySelectorAll('.steward-logo-badge').forEach(function(b) {
     b.innerHTML = BADGE_SVG;
   });
 
-  /* Find the real content container — drill past the section itself
-     to find the centered/padded inner div that holds all the content */
-  function findContentContainer(section) {
-    var kids = Array.from(section.children).filter(function(el) {
-      return !['SCRIPT','STYLE','NOSCRIPT'].includes(el.tagName);
-    });
-    /* Single child that is a div = the content wrapper (container/inner) */
-    if (kids.length === 1 && kids[0].tagName === 'DIV') {
-      return kids[0];
+  /* Find the deepest single-child container that wraps all content.
+     This is the max-width centered div, not the full-bleed section. */
+  function getInnerContainer(section) {
+    var el = section;
+    while (true) {
+      var kids = Array.from(el.children).filter(function(c) {
+        return !['SCRIPT','STYLE','NOSCRIPT'].includes(c.tagName);
+      });
+      /* If there's exactly one div child that spans less than full viewport,
+         that's our container — go one level deeper */
+      if (kids.length === 1 && kids[0].tagName === 'DIV') {
+        var w = kids[0].getBoundingClientRect().width;
+        if (w < window.innerWidth * 0.98) {
+          el = kids[0];
+          continue;
+        }
+      }
+      break;
     }
-    /* Multiple children — section IS the container */
-    return section;
+    return el;
   }
 
-  /* ── HERO: badge above first child of content container ────── */
+  /* ── HERO: badge above eyebrow text, aligned to its left ──── */
   function injectHero() {
     var hero = document.getElementById('hero');
     if (!hero || hero.querySelector('.steward-hero-badge-wrap')) return;
 
-    var container = findContentContainer(hero);
+    var container = getInnerContainer(hero);
+
+    /* Find the eyebrow label (first small text element before h1/h2) */
+    var eyebrow = null;
+    var children = Array.from(container.children);
+    for (var i = 0; i < children.length; i++) {
+      var tag = children[i].tagName;
+      if (/^H[123]$/.test(tag)) break;
+      eyebrow = children[i];
+    }
+    var anchor = eyebrow || container.firstChild;
+
     var wrap = document.createElement('div');
     wrap.className = 'steward-hero-badge-wrap';
     wrap.appendChild(makeBadge());
-    container.insertBefore(wrap, container.firstChild);
+
+    /* Align badge left edge with the eyebrow text left edge */
+    requestAnimationFrame(function() {
+      var target = eyebrow || container.querySelector('h1,h2,h3');
+      if (target) {
+        var targetLeft = target.getBoundingClientRect().left;
+        var heroLeft   = hero.getBoundingClientRect().left;
+        var inset = targetLeft - heroLeft;
+        if (inset > 0) wrap.style.paddingLeft = Math.round(inset) + 'px';
+      }
+    });
+
+    container.insertBefore(wrap, anchor);
   }
 
-  /* ── OTHER SECTIONS: inject row INSIDE the content container ─ */
+  /* ── OTHER SECTIONS: row inside content container ────────── */
   function injectSection(section) {
     if (section.querySelector('.steward-inner-row')) return;
 
-    var container = findContentContainer(section);
+    var container = getInnerContainer(section);
 
-    /* Scoop all existing children of the container into a left col */
+    /* Move all container children into left col */
     var leftCol = document.createElement('div');
     leftCol.className = 'steward-inner-left';
-    var children = Array.from(container.children).filter(function(el) {
-      return !['SCRIPT','STYLE','NOSCRIPT'].includes(el.tagName);
-    });
-    children.forEach(function(c) { leftCol.appendChild(c); });
+    Array.from(container.children).filter(function(c) {
+      return !['SCRIPT','STYLE','NOSCRIPT'].includes(c.tagName);
+    }).forEach(function(c) { leftCol.appendChild(c); });
 
     var rightCol = document.createElement('div');
     rightCol.className = 'steward-inner-right';
@@ -1001,7 +1021,7 @@
     row.appendChild(rightCol);
     container.appendChild(row);
 
-    /* Align badge vertically with the h1/h2 */
+    /* Align badge top with h1/h2 */
     requestAnimationFrame(function() {
       var heading = leftCol.querySelector('h1, h2, h3');
       if (heading) {
