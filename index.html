@@ -875,80 +875,58 @@
 
   <!--
   ═══════════════════════════════════════════════════════════════════
-  STEWARD — Logo Badge Injection
+  STEWARD — Logo Badge Injection  (v2)
   Paste this entire block just before </body> in your index.html
   ═══════════════════════════════════════════════════════════════════
 -->
  
 <style>
-  /* ── Logo badge shared styles ─────────────────────────────── */
-  .steward-logo-badge {
-    position: absolute;
-    top: 28px;
-    right: 36px;
-    z-index: 10;
-    background: #f0ece6;
-    border-radius: 8px;
-    padding: 7px 12px 7px 10px;
+  /* ── Row wrapper: section eyebrow label + badge, same line ── */
+  .steward-label-row {
     display: flex;
     align-items: center;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.10);
-    pointer-events: none;        /* non-interactive — purely branding */
+    justify-content: space-between;
+    width: 100%;
   }
  
-  /* Every section needs relative positioning to anchor the badge */
-  section.steward-badged {
-    position: relative;
+  /* ── The badge itself ─────────────────────────────────────── */
+  .steward-logo-badge {
+    background: #f0ece6;
+    border-radius: 9px;
+    padding: 9px 16px 9px 12px;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.10);
   }
  
-  /* On small screens, shrink or hide */
-  @media (max-width: 600px) {
-    .steward-logo-badge {
-      top: 14px;
-      right: 16px;
-      padding: 5px 8px 5px 7px;
-      border-radius: 6px;
-    }
-    .steward-logo-badge svg {
-      width: 66px;
-      height: 21px;
-    }
+  @media (max-width: 640px) {
+    .steward-logo-badge { display: none; }
   }
 </style>
  
 <script>
 (function () {
-  /* ── 1. The badge SVG (light-bg lockup) ──────────────────── */
+ 
   var BADGE_SVG =
-    '<svg width="82" height="26" viewBox="0 0 82 26" fill="none" xmlns="http://www.w3.org/2000/svg">' +
-      /* outer shield */
-      '<path d="M13 1.5 L21 4.5 L21 12 C21 17 17.5 21.5 13 23.5 C8.5 21.5 5 17 5 12 L5 4.5 Z"' +
-           ' fill="rgba(154,101,32,0.07)" stroke="#9a6520" stroke-width="1.1" stroke-linejoin="round"/>' +
-      /* inner shield */
-      '<path d="M13 6 L18.5 8 L18.5 12 C18.5 15.8 16 19 13 20.5 C10 19 7.5 15.8 7.5 12 L7.5 8 Z"' +
-           ' fill="rgba(154,101,32,0.05)" stroke="rgba(154,101,32,0.28)" stroke-width="0.65" stroke-linejoin="round"/>' +
-      /* S letterform */
-      '<path d="M15.5 9.8 C15.5 8.6 14.5 7.8 13 7.8 C11.5 7.8 10.5 8.7 10.5 9.8' +
-           ' C10.5 10.9 11.4 11.4 13 11.9 C14.6 12.4 15.5 13 15.5 14.2' +
-           ' C15.5 15.4 14.5 16.2 13 16.2 C11.5 16.2 10.5 15.4 10.5 14.4"' +
-           ' stroke="#9a6520" stroke-width="1.15" stroke-linecap="round" fill="none"/>' +
-      /* apex dot */
-      '<circle cx="13" cy="3.2" r="0.85" fill="#9a6520"/>' +
-      /* vertical divider */
-      '<line x1="27" y1="4" x2="27" y2="22" stroke="#9a6520" stroke-width="0.5" opacity="0.2"/>' +
-      /* STEWARD wordmark */
-      '<text x="33" y="13.5" fill="#1a1008"' +
+    '<svg width="124" height="38" viewBox="0 0 124 38" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+      '<path d="M19 2 L31 6.5 L31 17.5 C31 25 25.5 31.5 19 34.5 C12.5 31.5 7 25 7 17.5 L7 6.5 Z"' +
+           ' fill="rgba(154,101,32,0.08)" stroke="#9a6520" stroke-width="1.4" stroke-linejoin="round"/>' +
+      '<path d="M19 9 L27 12 L27 17.5 C27 23 23.5 28 19 30 C14.5 28 11 23 11 17.5 L11 12 Z"' +
+           ' fill="rgba(154,101,32,0.05)" stroke="rgba(154,101,32,0.25)" stroke-width="0.8" stroke-linejoin="round"/>' +
+      '<path d="M22.5 14 C22.5 12.3 21.2 11.2 19 11.2 C16.8 11.2 15.5 12.5 15.5 14 C15.5 15.5 16.8 16.2 19 17 C21.2 17.8 22.5 18.7 22.5 20.3 C22.5 21.9 21.2 23 19 23 C16.8 23 15.5 22 15.5 20.6"' +
+           ' stroke="#9a6520" stroke-width="1.5" stroke-linecap="round" fill="none"/>' +
+      '<circle cx="19" cy="4.5" r="1.2" fill="#9a6520"/>' +
+      '<line x1="40" y1="7" x2="40" y2="31" stroke="#9a6520" stroke-width="0.6" opacity="0.2"/>' +
+      '<text x="50" y="20" fill="#1a1008"' +
            ' font-family="\'Cormorant Garamond\', Georgia, serif"' +
-           ' font-size="10.5" font-weight="500" letter-spacing="1.8">STEWARD</text>' +
-      /* amber rule */
-      '<line x1="33" y1="16" x2="80" y2="16" stroke="#9a6520" stroke-width="0.4" opacity="0.35"/>' +
-      /* OVERSIGHT tagline */
-      '<text x="33" y="21.5" fill="#7a6040"' +
+           ' font-size="15.5" font-weight="500" letter-spacing="2.2">STEWARD</text>' +
+      '<line x1="50" y1="24" x2="121" y2="24" stroke="#9a6520" stroke-width="0.5" opacity="0.3"/>' +
+      '<text x="50" y="31" fill="#7a6040"' +
            ' font-family="\'DM Sans\', sans-serif"' +
-           ' font-size="5.5" font-weight="400" letter-spacing="1.8">OVERSIGHT</text>' +
+           ' font-size="7.5" font-weight="400" letter-spacing="2.5">OVERSIGHT</text>' +
     '</svg>';
  
-  /* ── 2. Build the badge element ──────────────────────────── */
   function makeBadge() {
     var div = document.createElement('div');
     div.className = 'steward-logo-badge';
@@ -957,40 +935,51 @@
     return div;
   }
  
-  /* ── 3. Target sections by their anchor IDs ──────────────── */
-  var SECTION_IDS = [
-    'hero',
-    'problem',
-    'workflow',
-    'investment',
-    'services',
-    'partners',
-    'application',
-    'faq'
-  ];
+  function wrapWithBadge(labelEl) {
+    var row = document.createElement('div');
+    row.className = 'steward-label-row';
+    var cs = window.getComputedStyle(labelEl);
+    row.style.marginBottom = cs.marginBottom;
+    row.style.marginTop    = cs.marginTop;
+    labelEl.style.marginBottom = '0';
+    labelEl.style.marginTop    = '0';
+    labelEl.parentNode.insertBefore(row, labelEl);
+    row.appendChild(labelEl);
+    row.appendChild(makeBadge());
+  }
  
-  SECTION_IDS.forEach(function (id) {
-    var el = document.getElementById(id);
-    if (!el) return;
+  function findEyebrow(section) {
+    var children = Array.from(section.children);
+    var headingIdx = children.findIndex(function(el) {
+      return /^H[123]$/.test(el.tagName);
+    });
+    if (headingIdx > 0)  return children[headingIdx - 1];
+    if (headingIdx === 0) return children[0];
+    return children[0] || null;
+  }
  
-    /* ensure the section can anchor absolute children */
-    el.classList.add('steward-badged');
+  var SECTION_IDS = ['hero', 'problem', 'workflow', 'investment',
+                     'services', 'partners', 'application', 'faq'];
  
-    /* inject badge */
-    el.insertBefore(makeBadge(), el.firstChild);
+  SECTION_IDS.forEach(function(id) {
+    var section = document.getElementById(id);
+    if (!section) return;
+    var eyebrow = findEyebrow(section);
+    if (!eyebrow) return;
+    wrapWithBadge(eyebrow);
   });
  
-  /* ── 4. Also catch any <section> without a listed ID ─────── */
-  /* (remove this block if you only want the explicit IDs above) */
-  document.querySelectorAll('section').forEach(function (sec) {
-    if (sec.classList.contains('steward-badged')) return; /* already done */
-    sec.classList.add('steward-badged');
-    sec.insertBefore(makeBadge(), sec.firstChild);
+  document.querySelectorAll('section').forEach(function(sec) {
+    if (sec.querySelector('.steward-logo-badge')) return;
+    var eyebrow = findEyebrow(sec);
+    if (!eyebrow) return;
+    wrapWithBadge(eyebrow);
   });
  
 })();
 </script>
  
 <!--
+  
 </body>
 </html>
