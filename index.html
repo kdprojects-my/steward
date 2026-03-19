@@ -874,15 +874,11 @@
 </script>
 
 <!--
-<!--
-  ═══════════════════════════════════════════════════════════════════
-  STEWARD — Logo Badge  (v8 — FINAL)
 
-  !! IMPORTANT — before pasting this:
-     1. Open index.html
-     2. Search for "steward-logo" — delete EVERY block you find
-     3. Then paste this once, just before </body>
-  ═══════════════════════════════════════════════════════════════════
+  <!--
+  STEWARD — Logo Badge (v9 — self-correcting)
+  Delete all previous versions, paste once before </body>
+  After pushing: hard refresh with Ctrl+Shift+R (Win) / Cmd+Shift+R (Mac)
 -->
 
 <style>
@@ -921,26 +917,32 @@
 <script>
 (function () {
 
-  /* Single outer shield — stroke only, no fill, no inner path, no S */
-  var BADGE_SVG =
+  /* ── The correct SVG: ONE path, fill="none", stroke only ── */
+  var CORRECT_SVG =
     '<svg width="210" height="58" viewBox="0 0 220 58" fill="none" xmlns="http://www.w3.org/2000/svg">' +
       '<path d="M29 3 L47 10 L47 27 C47 38.5 39 48.5 29 53 C19 48.5 11 38.5 11 27 L11 10 Z"' +
-           ' fill="none" stroke="#9a6520" stroke-width="1.8" stroke-linejoin="round"/>' +
+        ' fill="none" stroke="#9a6520" stroke-width="1.8" stroke-linejoin="round"/>' +
       '<line x1="62" y1="10" x2="62" y2="48" stroke="#9a6520" stroke-width="0.7" opacity="0.2"/>' +
       '<text x="74" y="30" fill="#1a1008"' +
-           ' font-family="\'Cormorant Garamond\', Georgia, serif"' +
-           ' font-size="23" font-weight="500" letter-spacing="3">STEWARD</text>' +
+        ' font-family="\'Cormorant Garamond\', Georgia, serif"' +
+        ' font-size="23" font-weight="500" letter-spacing="3">STEWARD</text>' +
       '<line x1="74" y1="37" x2="216" y2="37" stroke="#9a6520" stroke-width="0.6" opacity="0.3"/>' +
       '<text x="74" y="47" fill="#7a6040"' +
-           ' font-family="\'DM Sans\', sans-serif"' +
-           ' font-size="9.5" font-weight="400" letter-spacing="3.5">OVERSIGHT</text>' +
+        ' font-family="\'DM Sans\', sans-serif"' +
+        ' font-size="9.5" font-weight="400" letter-spacing="3.5">OVERSIGHT</text>' +
     '</svg>';
 
+  /* ── Step 1: nuke every existing badge SVG and replace it ── */
+  document.querySelectorAll('.steward-logo-badge').forEach(function(badge) {
+    badge.innerHTML = CORRECT_SVG;
+  });
+
+  /* ── Step 2: inject into sections not yet processed ──────── */
   function makeBadge() {
     var div = document.createElement('div');
     div.className = 'steward-logo-badge';
     div.setAttribute('aria-hidden', 'true');
-    div.innerHTML = BADGE_SVG;
+    div.innerHTML = CORRECT_SVG;
     return div;
   }
 
@@ -982,20 +984,16 @@
     requestAnimationFrame(function() {
       var heading = inner.querySelector('h1, h2, h3');
       if (!heading) return;
-      var rowRect     = row.getBoundingClientRect();
-      var headingRect = heading.getBoundingClientRect();
-      var offset      = headingRect.top - rowRect.top;
+      var offset = heading.getBoundingClientRect().top - row.getBoundingClientRect().top;
       if (offset > 0) logoCol.style.paddingTop = Math.round(offset) + 'px';
     });
   }
 
-  var SECTION_IDS = ['hero','problem','workflow','investment',
-                     'services','partners','application','faq'];
-
-  SECTION_IDS.forEach(function(id) {
-    var el = document.getElementById(id);
-    if (el) injectIntoSection(el);
-  });
+  ['hero','problem','workflow','investment','services','partners','application','faq']
+    .forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) injectIntoSection(el);
+    });
 
   document.querySelectorAll('section').forEach(function(sec) {
     if (!sec.querySelector('.steward-logo-col')) injectIntoSection(sec);
