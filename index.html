@@ -874,75 +874,81 @@
 </script>
 
 <!--
+<!--
   ═══════════════════════════════════════════════════════════════════
-  STEWARD — Logo Badge Injection  (v4)
-  Paste this entire block just before </body> in your index.html
-  Remove any previous version of this script first.
+  STEWARD — Logo Badge Injection  (v7 — shield outline only, no S)
+  Remove any previous version, paste just before </body> in index.html
   ═══════════════════════════════════════════════════════════════════
 -->
- 
+
 <style>
   .steward-section-row {
     display: flex;
-    align-items: flex-start;      /* ← both cols pin to top of row */
+    align-items: flex-start;
     justify-content: space-between;
     gap: 48px;
     width: 100%;
   }
- 
+
   .steward-content-col {
     flex: 1 1 0;
     min-width: 0;
   }
- 
-  /* Logo col: 260px wide, sticks to the TOP-RIGHT corner */
+
   .steward-logo-col {
-    flex: 0 0 260px;
+    flex: 0 0 220px;
     display: flex;
-    align-items: flex-start;      /* ← pin badge to top of column  */
-    justify-content: flex-end;    /* ← push badge to the right edge */
-    padding-top: 4px;             /* subtle optical alignment with eyebrow text */
+    align-items: flex-start;
+    justify-content: flex-end;
   }
- 
+
   .steward-logo-badge {
     background: #f0ece6;
     border-radius: 14px;
-    padding: 18px 26px 18px 20px;
+    padding: 14px 22px 14px 16px;
     display: inline-flex;
     align-items: center;
     box-shadow: 0 2px 12px rgba(0,0,0,0.13);
   }
- 
+
   @media (max-width: 900px) {
     .steward-logo-col    { display: none; }
     .steward-section-row { display: block; }
   }
 </style>
- 
+
 <script>
 (function () {
- 
+
+  /* Shield outlines only — no S path, no apex dot */
   var BADGE_SVG =
-    '<svg width="190" height="58" viewBox="0 0 190 58" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+    '<svg width="210" height="58" viewBox="0 0 220 58" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+
+      /* outer shield */
       '<path d="M29 3 L47 10 L47 27 C47 38.5 39 48.5 29 53 C19 48.5 11 38.5 11 27 L11 10 Z"' +
            ' fill="rgba(154,101,32,0.09)" stroke="#9a6520" stroke-width="1.8" stroke-linejoin="round"/>' +
+
+      /* inner shield */
       '<path d="M29 13 L41 17.5 L41 27 C41 35 36 42.5 29 46 C22 42.5 17 35 17 27 L17 17.5 Z"' +
            ' fill="rgba(154,101,32,0.05)" stroke="rgba(154,101,32,0.25)" stroke-width="1" stroke-linejoin="round"/>' +
-      '<path d="M34.5 21.5 C34.5 18.8 32.5 17 29 17 C25.5 17 23.5 19 23.5 21.5' +
-           ' C23.5 24 25.5 25.2 29 26.2 C32.5 27.2 34.5 28.6 34.5 31.2' +
-           ' C34.5 33.8 32.5 35.5 29 35.5 C25.5 35.5 23.5 33.8 23.5 31.5"' +
-           ' stroke="#9a6520" stroke-width="2.2" stroke-linecap="round" fill="none"/>' +
-      '<circle cx="29" cy="6.5" r="1.8" fill="#9a6520"/>' +
+
+      /* vertical divider */
       '<line x1="62" y1="10" x2="62" y2="48" stroke="#9a6520" stroke-width="0.7" opacity="0.2"/>' +
+
+      /* STEWARD wordmark */
       '<text x="74" y="30" fill="#1a1008"' +
            ' font-family="\'Cormorant Garamond\', Georgia, serif"' +
            ' font-size="23" font-weight="500" letter-spacing="3">STEWARD</text>' +
-      '<line x1="74" y1="37" x2="187" y2="37" stroke="#9a6520" stroke-width="0.6" opacity="0.3"/>' +
+
+      /* amber rule */
+      '<line x1="74" y1="37" x2="216" y2="37" stroke="#9a6520" stroke-width="0.6" opacity="0.3"/>' +
+
+      /* OVERSIGHT tagline */
       '<text x="74" y="47" fill="#7a6040"' +
            ' font-family="\'DM Sans\', sans-serif"' +
            ' font-size="9.5" font-weight="400" letter-spacing="3.5">OVERSIGHT</text>' +
     '</svg>';
- 
+
   function makeBadge() {
     var div = document.createElement('div');
     div.className = 'steward-logo-badge';
@@ -950,21 +956,21 @@
     div.innerHTML = BADGE_SVG;
     return div;
   }
- 
+
   function makeLogoCol() {
     var col = document.createElement('div');
     col.className = 'steward-logo-col';
     col.appendChild(makeBadge());
     return col;
   }
- 
+
   function injectIntoSection(section) {
     if (section.querySelector('.steward-section-row')) return;
- 
+
     var kids = Array.from(section.children).filter(function(el) {
       return !['SCRIPT','STYLE','NOSCRIPT'].includes(el.tagName);
     });
- 
+
     var inner;
     if (kids.length === 1) {
       inner = kids[0];
@@ -974,30 +980,41 @@
       kids.forEach(function(k) { inner.appendChild(k); });
       section.appendChild(inner);
     }
- 
+
     if (!inner.classList.contains('steward-content-col')) {
       inner.classList.add('steward-content-col');
     }
- 
+
+    var logoCol = makeLogoCol();
     var row = document.createElement('div');
     row.className = 'steward-section-row';
     section.insertBefore(row, inner);
     row.appendChild(inner);
-    row.appendChild(makeLogoCol());
+    row.appendChild(logoCol);
+
+    /* Align badge top with the h2 heading */
+    requestAnimationFrame(function() {
+      var heading = inner.querySelector('h1, h2, h3');
+      if (!heading) return;
+      var rowRect     = row.getBoundingClientRect();
+      var headingRect = heading.getBoundingClientRect();
+      var offset      = headingRect.top - rowRect.top;
+      if (offset > 0) logoCol.style.paddingTop = Math.round(offset) + 'px';
+    });
   }
- 
+
   var SECTION_IDS = ['hero','problem','workflow','investment',
                      'services','partners','application','faq'];
- 
+
   SECTION_IDS.forEach(function(id) {
     var el = document.getElementById(id);
     if (el) injectIntoSection(el);
   });
- 
+
   document.querySelectorAll('section').forEach(function(sec) {
     if (!sec.querySelector('.steward-logo-col')) injectIntoSection(sec);
   });
- 
+
 })();
 </script>
  
