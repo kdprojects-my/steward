@@ -876,8 +876,9 @@
 <!--
 <!--
   ═══════════════════════════════════════════════════════════════════
-  STEWARD — Logo Badge Injection  (v7 — shield outline only, no S)
-  Remove any previous version, paste just before </body> in index.html
+  STEWARD — Logo Badge Injection  (v8)
+  1. Delete EVERYTHING you previously pasted in index.html
+  2. Paste only this block just before </body>
   ═══════════════════════════════════════════════════════════════════
 -->
 
@@ -895,11 +896,13 @@
     min-width: 0;
   }
 
+  /* Pulled 40px away from the right edge */
   .steward-logo-col {
     flex: 0 0 220px;
     display: flex;
     align-items: flex-start;
     justify-content: flex-end;
+    padding-right: 40px;
   }
 
   .steward-logo-badge {
@@ -920,14 +923,13 @@
 <script>
 (function () {
 
-  /* Shield outlines only — no S path, no apex dot */
+  /* Outer shield only — no inner shield, no S, no apex dot */
   var BADGE_SVG =
     '<svg width="210" height="58" viewBox="0 0 220 58" fill="none" xmlns="http://www.w3.org/2000/svg">' +
 
-      /* outer shield */
+      /* OUTER SHIELD ONLY */
       '<path d="M29 3 L47 10 L47 27 C47 38.5 39 48.5 29 53 C19 48.5 11 38.5 11 27 L11 10 Z"' +
            ' fill="rgba(154,101,32,0.09)" stroke="#9a6520" stroke-width="1.8" stroke-linejoin="round"/>' +
-
 
       /* vertical divider */
       '<line x1="62" y1="10" x2="62" y2="48" stroke="#9a6520" stroke-width="0.7" opacity="0.2"/>' +
@@ -989,7 +991,7 @@
     row.appendChild(inner);
     row.appendChild(logoCol);
 
-    /* Align badge top with the h2 heading */
+    /* Align badge top with the h2/h1 heading */
     requestAnimationFrame(function() {
       var heading = inner.querySelector('h1, h2, h3');
       if (!heading) return;
@@ -1014,7 +1016,6 @@
 
 })();
 </script>
- 
 <!--
 </body>
 </html>
