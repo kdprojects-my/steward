@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <meta name="description" content="Steward — Professional oversight for direct early-stage life sciences investment. A non-profit entity providing family offices the confidence to invest directly in biotech, healthcare, and medical device companies.">
+  <meta name="description" content="Steward — Professional oversight for direct early-stage life sciences investment. A non-profit entity providing family offices the confidence to invest directly in life sciences (biotech, healthcare, and medical device) companies.">
   <meta property="og:title" content="Steward — Life Sciences Investment Oversight">
   <meta property="og:description" content="Professional oversight entity for direct early-stage life sciences investment.">
   <title>Steward — Professional Oversight for Life Sciences Investment</title>
@@ -325,17 +325,9 @@
       color: #c9893a;
       letter-spacing: -1px;
     ">25–39<span style="font-size:26px; letter-spacing:0;">%</span></div>
-    <div style="
-      font-family: 'DM Sans', sans-serif;
-      font-size: 9px;
-      font-weight: 400;
-      color: rgba(201,137,58,0.45);
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      margin-top: 2px;
-    ">for example</div>
+    <div style="font-family:'DM Sans',sans-serif;font-size:9px;font-weight:400;color:rgba(201,137,58,0.45);letter-spacing:0.14em;text-transform:uppercase;margin-top:2px;">for example</div>
 
-    <!-- Label -->
+    <!-- Label — directly tied to "why Steward exists" -->
     <div style="
       font-family: 'DM Sans', sans-serif;
       font-size: 12px;
@@ -846,7 +838,7 @@
         <div class="contact-title">Still have questions?</div>
         <div class="contact-body">Our team is happy to walk you through the Steward model in detail — whether you're a family office exploring direct investment or an early-stage company considering applying.</div>
       </div>
-      <a class="btn btn-primary" href="/cdn-cgi/l/email-protection#1e777078715e6d6a7b697f6c7a71687b6c6d7779766a30716c79">Get in touch →</a>
+      <a class="btn btn-primary" href="/cdn-cgi/l/email-protection#b6dfd8d0d9f6c5c2d3c1d7c4d2d9c0d3c4c5dfd1dec298d9c4d1">Get in touch →</a>
     </div>
   </div>
 </section>
@@ -915,7 +907,7 @@
       <div class="footer-col-title">Contact</div>
       <div class="contact-item">
         <svg class="contact-icon" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="10" rx="2" stroke="rgba(255,255,255,0.7)" stroke-width="0.8"/><path d="M1 5.5l7 4.5 7-4.5" stroke="rgba(255,255,255,0.7)" stroke-width="0.8" stroke-linecap="round"/></svg>
-        <div class="contact-text"><a href="/cdn-cgi/l/email-protection#b9d0d7dfd6f9cacddcced8cbddd6cfdccbcad0ded1cd97d6cbde"><span class="__cf_email__" data-cfemail="ee87808881ae9d9a8b998f9c8a81988b9c9d8789869ac0819c89">[email&#160;protected]</span></a></div>
+        <div class="contact-text"><a href="/cdn-cgi/l/email-protection#ed84838b82ad9e99889a8c9f89829b889f9e848a8599c3829f8a"><span class="__cf_email__" data-cfemail="1e777078715e6d6a7b697f6c7a71687b6c6d7779766a30716c79">[email&#160;protected]</span></a></div>
       </div>
       <div class="contact-item">
         <svg class="contact-icon" viewBox="0 0 16 16" fill="none"><path d="M8 1C5.2 1 3 3.2 3 6c0 3.8 5 9 5 9s5-5.2 5-9c0-2.8-2.2-5-5-5z" stroke="rgba(255,255,255,0.7)" stroke-width="0.8"/><circle cx="8" cy="6" r="1.5" stroke="rgba(255,255,255,0.7)" stroke-width="0.8"/></svg>
@@ -954,20 +946,7 @@
   (function() {
     const container = document.getElementById('diversDots');
     if (!container) return;
-    const dots = Array(15).fill(0).map((_, i) => {
-      const cls = i >= 13 ? 'success' : '';
-      return `<div class="dot-many ${cls}"></div>`;
-    });
-    container.innerHTML = dots.join('');
-  })();
-</script>
-
-<!--
-
-<!--
-  STEWARD — Logo Badge (v16)
-  Delete all previous versions, paste once before </body>
-  Hard refresh: Ctrl+Shift+R / Cmd+Shift+R
+    const dots = Array(15).filrl+Shift+R / Cmd+Shift+R
 -->
 
 <style>
@@ -1124,4 +1103,19 @@
 
   ['problem','workflow','investment','services','partners','application','faq']
     .forEach(function(id) {
-      var el = document.getEleme
+      var el = document.getElementById(id);
+      if (el) injectSection(el);
+    });
+
+  document.querySelectorAll('section').forEach(function(sec) {
+    if (!sec.querySelector('.steward-inner-row') &&
+        !sec.querySelector('.steward-hero-badge-wrap')) {
+      injectSection(sec);
+    }
+  });
+
+})();
+</script>
+<!--
+</body>
+</html>
