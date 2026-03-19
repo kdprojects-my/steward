@@ -876,7 +876,7 @@
 <!--
 
 <!--
-  STEWARD — Logo Badge (v13)
+  STEWARD — Logo Badge (v15)
   Delete all previous versions, paste once before </body>
   Hard refresh: Ctrl+Shift+R / Cmd+Shift+R
 -->
@@ -889,28 +889,27 @@
     display: inline-flex;
     align-items: center;
     box-shadow: 0 2px 12px rgba(0,0,0,0.13);
+    flex-shrink: 0;
   }
 
-  /* Hero: badge above eyebrow, indented from left to match content padding */
+  /* Hero: badge floated above eyebrow */
   .steward-hero-badge-wrap {
     margin-bottom: 20px;
-    padding-left: 2px; /* matches your section's left content start */
   }
 
-  /* Other sections: two-col row */
-  .steward-section-row {
+  /* Injected into the content container — spans only the content width */
+  .steward-inner-row {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     gap: 48px;
     width: 100%;
   }
-  .steward-content-col {
+  .steward-inner-left {
     flex: 1 1 0;
     min-width: 0;
   }
-  /* Badge col: no right margin — JS sets it precisely per section */
-  .steward-logo-col {
+  .steward-inner-right {
     flex: 0 0 auto;
     display: flex;
     align-items: flex-start;
@@ -918,8 +917,8 @@
   }
 
   @media (max-width: 900px) {
-    .steward-logo-col        { display: none; }
-    .steward-section-row     { display: block; }
+    .steward-inner-right     { display: none; }
+    .steward-inner-row       { display: block; }
     .steward-hero-badge-wrap { display: none; }
   }
 </style>
@@ -952,107 +951,62 @@
     b.innerHTML = BADGE_SVG;
   });
 
-  /* ── HERO: badge above eyebrow, left-aligned with content ── */
-  function injectHero() {
-    var hero = document.getElementById('hero');
-    if (!hero) return;
-    if (hero.querySelector('.steward-hero-badge-wrap')) return;
-
-    var wrap = document.createElement('div');
-    wrap.className = 'steward-hero-badge-wrap';
-    wrap.appendChild(makeBadge());
-
-    /* Align badge left with the eyebrow text inside hero.
-       Measure the first text element (p, span, h1, h2, div with text)
-       to find exactly where content starts horizontally.             */
-    var kids = Array.from(hero.children).filter(function(el) {
-      return !['SCRIPT','STYLE','NOSCRIPT'].includes(el.tagName);
-    });
-    var firstKid = kids[0];
-
-    /* Walk into nested containers to find the actual text node's x */
-    function findTextLeft(root, heroLeft) {
-      var walker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT);
-      var node = walker.nextNode();
-      while (node) {
-        var tag = node.tagName;
-        if (/^(P|SPAN|H[1-6]|A|STRONG|EM|LABEL)$/.test(tag)) {
-          var r = node.getBoundingClientRect();
-          if (r.width > 20) return r.left - heroLeft;
-        }
-        node = walker.nextNode();
-      }
-      return 0;
-    }
-
-    if (firstKid) {
-      var heroLeft  = hero.getBoundingClientRect().left;
-      var leftInset = findTextLeft(hero, heroLeft);
-      if (leftInset > 0) wrap.style.paddingLeft = Math.round(leftInset) + 'px';
-    }
-
-    hero.insertBefore(wrap, firstKid || null);
-  }
-
-  /* ── OTHER SECTIONS: right col, badge right = content right ─ */
-  function injectSection(section) {
-    if (section.querySelector('.steward-section-row')) return;
-
+  /* Find the real content container — drill past the section itself
+     to find the centered/padded inner div that holds all the content */
+  function findContentContainer(section) {
     var kids = Array.from(section.children).filter(function(el) {
       return !['SCRIPT','STYLE','NOSCRIPT'].includes(el.tagName);
     });
-
-    var inner;
-    if (kids.length === 1) {
-      inner = kids[0];
-    } else {
-      inner = document.createElement('div');
-      inner.className = 'steward-content-col';
-      kids.forEach(function(k) { inner.appendChild(k); });
-      section.appendChild(inner);
+    /* Single child that is a div = the content wrapper (container/inner) */
+    if (kids.length === 1 && kids[0].tagName === 'DIV') {
+      return kids[0];
     }
-    if (!inner.classList.contains('steward-content-col')) {
-      inner.classList.add('steward-content-col');
-    }
+    /* Multiple children — section IS the container */
+    return section;
+  }
 
-    var logoCol = document.createElement('div');
-    logoCol.className = 'steward-logo-col';
-    logoCol.appendChild(makeBadge());
+  /* ── HERO: badge above first child of content container ────── */
+  function injectHero() {
+    var hero = document.getElementById('hero');
+    if (!hero || hero.querySelector('.steward-hero-badge-wrap')) return;
+
+    var container = findContentContainer(hero);
+    var wrap = document.createElement('div');
+    wrap.className = 'steward-hero-badge-wrap';
+    wrap.appendChild(makeBadge());
+    container.insertBefore(wrap, container.firstChild);
+  }
+
+  /* ── OTHER SECTIONS: inject row INSIDE the content container ─ */
+  function injectSection(section) {
+    if (section.querySelector('.steward-inner-row')) return;
+
+    var container = findContentContainer(section);
+
+    /* Scoop all existing children of the container into a left col */
+    var leftCol = document.createElement('div');
+    leftCol.className = 'steward-inner-left';
+    var children = Array.from(container.children).filter(function(el) {
+      return !['SCRIPT','STYLE','NOSCRIPT'].includes(el.tagName);
+    });
+    children.forEach(function(c) { leftCol.appendChild(c); });
+
+    var rightCol = document.createElement('div');
+    rightCol.className = 'steward-inner-right';
+    rightCol.appendChild(makeBadge());
 
     var row = document.createElement('div');
-    row.className = 'steward-section-row';
-    section.insertBefore(row, inner);
-    row.appendChild(inner);
-    row.appendChild(logoCol);
+    row.className = 'steward-inner-row';
+    row.appendChild(leftCol);
+    row.appendChild(rightCol);
+    container.appendChild(row);
 
+    /* Align badge vertically with the h1/h2 */
     requestAnimationFrame(function() {
-      /* 1. Vertical: align badge top with heading */
-      var heading = inner.querySelector('h1, h2, h3');
+      var heading = leftCol.querySelector('h1, h2, h3');
       if (heading) {
-        var vOffset = heading.getBoundingClientRect().top - row.getBoundingClientRect().top;
-        if (vOffset > 0) logoCol.style.paddingTop = Math.round(vOffset) + 'px';
-      }
-
-      /* 2. Horizontal: find the rightmost content box in this section
-            and align badge right edge to match it                     */
-      var allBoxes = inner.querySelectorAll('div, section, article');
-      var maxRight = inner.getBoundingClientRect().right; /* fallback */
-
-      allBoxes.forEach(function(box) {
-        /* Only consider direct visual boxes — skip wrappers wider than content */
-        var r = box.getBoundingClientRect();
-        if (r.width > 40 && r.width < inner.getBoundingClientRect().width * 0.85) {
-          if (r.right > maxRight) maxRight = r.right;
-        }
-      });
-
-      /* Distance from section right edge to content right edge */
-      var sectionRight = section.getBoundingClientRect().right;
-      var rightGap = sectionRight - maxRight;
-
-      /* Apply as right margin on the logo column so badge right = content right */
-      if (rightGap > 0) {
-        logoCol.style.marginRight = Math.round(rightGap) + 'px';
+        var offset = heading.getBoundingClientRect().top - row.getBoundingClientRect().top;
+        if (offset > 0) rightCol.style.paddingTop = Math.round(offset) + 'px';
       }
     });
   }
@@ -1066,7 +1020,7 @@
     });
 
   document.querySelectorAll('section').forEach(function(sec) {
-    if (!sec.querySelector('.steward-logo-col') &&
+    if (!sec.querySelector('.steward-inner-row') &&
         !sec.querySelector('.steward-hero-badge-wrap')) {
       injectSection(sec);
     }
