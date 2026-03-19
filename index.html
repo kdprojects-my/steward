@@ -876,9 +876,12 @@
 <!--
 <!--
   ═══════════════════════════════════════════════════════════════════
-  STEWARD — Logo Badge Injection  (v8)
-  1. Delete EVERYTHING you previously pasted in index.html
-  2. Paste only this block just before </body>
+  STEWARD — Logo Badge  (v8 — FINAL)
+
+  !! IMPORTANT — before pasting this:
+     1. Open index.html
+     2. Search for "steward-logo" — delete EVERY block you find
+     3. Then paste this once, just before </body>
   ═══════════════════════════════════════════════════════════════════
 -->
 
@@ -890,13 +893,10 @@
     gap: 48px;
     width: 100%;
   }
-
   .steward-content-col {
     flex: 1 1 0;
     min-width: 0;
   }
-
-  /* Pulled 40px away from the right edge */
   .steward-logo-col {
     flex: 0 0 220px;
     display: flex;
@@ -904,7 +904,6 @@
     justify-content: flex-end;
     padding-right: 40px;
   }
-
   .steward-logo-badge {
     background: #f0ece6;
     border-radius: 14px;
@@ -913,7 +912,6 @@
     align-items: center;
     box-shadow: 0 2px 12px rgba(0,0,0,0.13);
   }
-
   @media (max-width: 900px) {
     .steward-logo-col    { display: none; }
     .steward-section-row { display: block; }
@@ -923,26 +921,16 @@
 <script>
 (function () {
 
-  /* Outer shield only — no inner shield, no S, no apex dot */
+  /* Single outer shield — stroke only, no fill, no inner path, no S */
   var BADGE_SVG =
     '<svg width="210" height="58" viewBox="0 0 220 58" fill="none" xmlns="http://www.w3.org/2000/svg">' +
-
-      /* OUTER SHIELD ONLY */
       '<path d="M29 3 L47 10 L47 27 C47 38.5 39 48.5 29 53 C19 48.5 11 38.5 11 27 L11 10 Z"' +
-           ' fill="rgba(154,101,32,0.09)" stroke="#9a6520" stroke-width="1.8" stroke-linejoin="round"/>' +
-
-      /* vertical divider */
+           ' fill="none" stroke="#9a6520" stroke-width="1.8" stroke-linejoin="round"/>' +
       '<line x1="62" y1="10" x2="62" y2="48" stroke="#9a6520" stroke-width="0.7" opacity="0.2"/>' +
-
-      /* STEWARD wordmark */
       '<text x="74" y="30" fill="#1a1008"' +
            ' font-family="\'Cormorant Garamond\', Georgia, serif"' +
            ' font-size="23" font-weight="500" letter-spacing="3">STEWARD</text>' +
-
-      /* amber rule */
       '<line x1="74" y1="37" x2="216" y2="37" stroke="#9a6520" stroke-width="0.6" opacity="0.3"/>' +
-
-      /* OVERSIGHT tagline */
       '<text x="74" y="47" fill="#7a6040"' +
            ' font-family="\'DM Sans\', sans-serif"' +
            ' font-size="9.5" font-weight="400" letter-spacing="3.5">OVERSIGHT</text>' +
@@ -991,7 +979,6 @@
     row.appendChild(inner);
     row.appendChild(logoCol);
 
-    /* Align badge top with the h2/h1 heading */
     requestAnimationFrame(function() {
       var heading = inner.querySelector('h1, h2, h3');
       if (!heading) return;
