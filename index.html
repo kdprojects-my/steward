@@ -875,13 +875,29 @@
 
 <!--
 
-  <!--
-  STEWARD — Logo Badge (v9 — self-correcting)
+<!--
+  STEWARD — Logo Badge (v12)
   Delete all previous versions, paste once before </body>
-  After pushing: hard refresh with Ctrl+Shift+R (Win) / Cmd+Shift+R (Mac)
+  Hard refresh: Ctrl+Shift+R / Cmd+Shift+R
 -->
 
 <style>
+  /* ── Shared badge style ───────────────────────────────────── */
+  .steward-logo-badge {
+    background: #f0ece6;
+    border-radius: 14px;
+    padding: 14px 20px;
+    display: inline-flex;
+    align-items: center;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.13);
+  }
+
+  /* ── Hero: badge sits above eyebrow, left-aligned ─────────── */
+  .steward-hero-badge-wrap {
+    margin-bottom: 20px;
+  }
+
+  /* ── Other sections: two-col flex row ────────────────────── */
   .steward-section-row {
     display: flex;
     align-items: flex-start;
@@ -893,65 +909,65 @@
     flex: 1 1 0;
     min-width: 0;
   }
+  /* Right col — badge flush with right edge of content boxes.
+     max-width matches typical content container right padding.
+     Adjust padding-right if your layout uses different values. */
   .steward-logo-col {
-    flex: 0 0 220px;
+    flex: 0 0 auto;
     display: flex;
     align-items: flex-start;
     justify-content: flex-end;
-    padding-right: 40px;
   }
-  .steward-logo-badge {
-    background: #f0ece6;
-    border-radius: 14px;
-    padding: 14px 22px 14px 16px;
-    display: inline-flex;
-    align-items: center;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.13);
-  }
+
   @media (max-width: 900px) {
-    .steward-logo-col    { display: none; }
-    .steward-section-row { display: block; }
+    .steward-logo-col        { display: none; }
+    .steward-section-row     { display: block; }
+    .steward-hero-badge-wrap { display: none; }
   }
 </style>
 
 <script>
 (function () {
 
-  /* ── The correct SVG: ONE path, fill="none", stroke only ── */
-  var CORRECT_SVG =
-    '<svg width="210" height="58" viewBox="0 0 220 58" fill="none" xmlns="http://www.w3.org/2000/svg">' +
-      '<line x1="12" y1="10" x2="62" y2="48" stroke="#9a6520" stroke-width="0.7" opacity="0.2"/>' +
-      '<text x="12" y="30" fill="#1a1008"' +
+  var BADGE_SVG =
+    '<svg width="140" height="46" viewBox="0 0 140 46" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+      '<line x1="2" y1="4" x2="2" y2="42" stroke="#9a6520" stroke-width="1.5" opacity="0.5"/>' +
+      '<text x="12" y="24" fill="#1a1008"' +
         ' font-family="\'Cormorant Garamond\', Georgia, serif"' +
-        ' font-size="23" font-weight="500" letter-spacing="3">STEWARD</text>' +
-      '<line x1="12" y1="37" x2="138" y2="37" stroke="#9a6520" stroke-width="0.6" opacity="0.3"/>' +
-      '<text x="12" y="47" fill="#7a6040"' +
+        ' font-size="21" font-weight="500" letter-spacing="3">STEWARD</text>' +
+      '<line x1="12" y1="30" x2="138" y2="30" stroke="#9a6520" stroke-width="0.6" opacity="0.35"/>' +
+      '<text x="12" y="40" fill="#7a6040"' +
         ' font-family="\'DM Sans\', sans-serif"' +
-        ' font-size="9.5" font-weight="400" letter-spacing="3.5">OVERSIGHT</text>' +
+        ' font-size="9" font-weight="400" letter-spacing="3.5">OVERSIGHT</text>' +
     '</svg>';
 
-  /* ── Step 1: nuke every existing badge SVG and replace it ── */
-  document.querySelectorAll('.steward-logo-badge').forEach(function(badge) {
-    badge.innerHTML = CORRECT_SVG;
-  });
-
-  /* ── Step 2: inject into sections not yet processed ──────── */
   function makeBadge() {
     var div = document.createElement('div');
     div.className = 'steward-logo-badge';
     div.setAttribute('aria-hidden', 'true');
-    div.innerHTML = CORRECT_SVG;
+    div.innerHTML = BADGE_SVG;
     return div;
   }
 
-  function makeLogoCol() {
-    var col = document.createElement('div');
-    col.className = 'steward-logo-col';
-    col.appendChild(makeBadge());
-    return col;
+  /* ── Hero: inject badge ABOVE the first child (eyebrow) ──── */
+  function injectHero() {
+    var hero = document.getElementById('hero');
+    if (!hero) return;
+    if (hero.querySelector('.steward-hero-badge-wrap')) return;
+
+    var wrap = document.createElement('div');
+    wrap.className = 'steward-hero-badge-wrap';
+    wrap.appendChild(makeBadge());
+
+    /* Insert before the first visible child */
+    var first = Array.from(hero.children).find(function(el) {
+      return !['SCRIPT','STYLE','NOSCRIPT'].includes(el.tagName);
+    });
+    hero.insertBefore(wrap, first || null);
   }
 
-  function injectIntoSection(section) {
+  /* ── Other sections: badge in right col, aligned to content ─ */
+  function injectSection(section) {
     if (section.querySelector('.steward-section-row')) return;
 
     var kids = Array.from(section.children).filter(function(el) {
@@ -967,34 +983,57 @@
       kids.forEach(function(k) { inner.appendChild(k); });
       section.appendChild(inner);
     }
-
     if (!inner.classList.contains('steward-content-col')) {
       inner.classList.add('steward-content-col');
     }
 
-    var logoCol = makeLogoCol();
+    var logoCol = document.createElement('div');
+    logoCol.className = 'steward-logo-col';
+    logoCol.appendChild(makeBadge());
+
     var row = document.createElement('div');
     row.className = 'steward-section-row';
     section.insertBefore(row, inner);
     row.appendChild(inner);
     row.appendChild(logoCol);
 
+    /* Align badge top with h1/h2, right edge with content boxes */
     requestAnimationFrame(function() {
+      /* Vertical: push down to meet the heading */
       var heading = inner.querySelector('h1, h2, h3');
-      if (!heading) return;
-      var offset = heading.getBoundingClientRect().top - row.getBoundingClientRect().top;
-      if (offset > 0) logoCol.style.paddingTop = Math.round(offset) + 'px';
+      if (heading) {
+        var offset = heading.getBoundingClientRect().top - row.getBoundingClientRect().top;
+        if (offset > 0) logoCol.style.paddingTop = Math.round(offset) + 'px';
+      }
+
+      /* Horizontal: measure right edge of content, align badge to it */
+      var contentRight = inner.getBoundingClientRect().right;
+      var sectionRight = section.getBoundingClientRect().right;
+      var gap = sectionRight - contentRight;
+      /* gap is the space between content and section edge.
+         Set that as right margin so badge right = content right */
+      logoCol.style.marginRight = Math.max(gap, 0) + 'px';
     });
   }
 
-  ['hero','problem','workflow','investment','services','partners','application','faq']
+  /* Replace any stale badges */
+  document.querySelectorAll('.steward-logo-badge').forEach(function(b) {
+    b.innerHTML = BADGE_SVG;
+  });
+
+  injectHero();
+
+  ['problem','workflow','investment','services','partners','application','faq']
     .forEach(function(id) {
       var el = document.getElementById(id);
-      if (el) injectIntoSection(el);
+      if (el) injectSection(el);
     });
 
   document.querySelectorAll('section').forEach(function(sec) {
-    if (!sec.querySelector('.steward-logo-col')) injectIntoSection(sec);
+    if (!sec.querySelector('.steward-logo-col') &&
+        !sec.querySelector('.steward-hero-badge-wrap')) {
+      injectSection(sec);
+    }
   });
 
 })();
